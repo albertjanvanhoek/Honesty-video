@@ -5,21 +5,21 @@
     "status": "machine-aligned-needs-QA",
     "method": "faster-whisper medium.en word timestamps + monotonic dynamic-programming match to known lyrics",
     "language": "en",
-    "matchedWords": 235,
+    "matchedWords": 229,
     "totalWords": 238,
-    "matchFraction": 0.9874,
+    "matchFraction": 0.9622,
     "duration": 184.88,
     "note": "Review stretched sung words and repeated phrases before final export."
   },
   "lines": [
     {
       "text": "People say:",
-      "start": 3.76,
+      "start": 3.82,
       "end": 4.9,
       "words": [
         {
           "w": "People",
-          "start": 3.76,
+          "start": 3.82,
           "end": 4.5,
           "matched": true,
           "heard": "People"
@@ -29,32 +29,32 @@
           "start": 4.5,
           "end": 4.9,
           "matched": true,
-          "heard": "say,"
+          "heard": "say"
         }
       ]
     },
     {
       "text": "\"I am honest.\"",
-      "start": 6.22,
+      "start": 4.9,
       "end": 7.72,
       "words": [
         {
           "w": "I",
-          "start": 6.22,
-          "end": 7.06,
+          "start": 4.9,
+          "end": 7.04,
           "matched": true,
           "heard": "I"
         },
         {
           "w": "am",
-          "start": 7.06,
-          "end": 7.24,
+          "start": 7.04,
+          "end": 7.22,
           "matched": true,
           "heard": "am"
         },
         {
           "w": "honest",
-          "start": 7.24,
+          "start": 7.22,
           "end": 7.72,
           "matched": true,
           "heard": "honest,"
@@ -63,12 +63,12 @@
     },
     {
       "text": "As if honesty is something you own.",
-      "start": 8.72,
-      "end": 11.28,
+      "start": 7.84,
+      "end": 11.3,
       "words": [
         {
           "w": "As",
-          "start": 8.72,
+          "start": 7.84,
           "end": 9.52,
           "matched": true,
           "heard": "as"
@@ -76,13 +76,13 @@
         {
           "w": "if",
           "start": 9.52,
-          "end": 9.7,
+          "end": 9.68,
           "matched": true,
           "heard": "if"
         },
         {
           "w": "honesty",
-          "start": 9.7,
+          "start": 9.68,
           "end": 10.14,
           "matched": true,
           "heard": "honesty"
@@ -111,7 +111,7 @@
         {
           "w": "own",
           "start": 10.88,
-          "end": 11.28,
+          "end": 11.3,
           "matched": true,
           "heard": "own,"
         }
@@ -196,12 +196,12 @@
     },
     {
       "text": "Like a trophy you once won",
-      "start": 17.26,
-      "end": 19.04,
+      "start": 17.16,
+      "end": 19.06,
       "words": [
         {
           "w": "Like",
-          "start": 17.26,
+          "start": 17.16,
           "end": 17.56,
           "matched": true,
           "heard": "like"
@@ -237,7 +237,7 @@
         {
           "w": "won",
           "start": 18.62,
-          "end": 19.04,
+          "end": 19.06,
           "matched": true,
           "heard": "won"
         }
@@ -245,12 +245,12 @@
     },
     {
       "text": "and keep forever.",
-      "start": 19.04,
-      "end": 21.12,
+      "start": 19.06,
+      "end": 21.14,
       "words": [
         {
           "w": "and",
-          "start": 19.04,
+          "start": 19.06,
           "end": 20.26,
           "matched": true,
           "heard": "and"
@@ -265,7 +265,7 @@
         {
           "w": "forever",
           "start": 20.54,
-          "end": 21.12,
+          "end": 21.14,
           "matched": true,
           "heard": "forever."
         }
@@ -273,12 +273,12 @@
     },
     {
       "text": "But that is not how honesty works.",
-      "start": 22.47,
+      "start": 22.5,
       "end": 24.64,
       "words": [
         {
           "w": "But",
-          "start": 22.47,
+          "start": 22.5,
           "end": 22.84,
           "matched": true,
           "heard": "But"
@@ -293,13 +293,13 @@
         {
           "w": "is",
           "start": 23.0,
-          "end": 23.16,
+          "end": 23.14,
           "matched": true,
           "heard": "is"
         },
         {
           "w": "not",
-          "start": 23.16,
+          "start": 23.14,
           "end": 23.36,
           "matched": true,
           "heard": "not"
@@ -335,27 +335,27 @@
         {
           "w": "Nobody",
           "start": 24.64,
-          "end": 26.22,
+          "end": 26.24,
           "matched": true,
           "heard": "Nobody"
         },
         {
           "w": "says",
-          "start": 26.22,
+          "start": 26.24,
           "end": 26.74,
           "matched": true,
-          "heard": "says,"
+          "heard": "says"
         }
       ]
     },
     {
       "text": "\"I am the sport I play.\"",
-      "start": 28.66,
-      "end": 29.9,
+      "start": 26.74,
+      "end": 29.94,
       "words": [
         {
           "w": "I",
-          "start": 28.66,
+          "start": 26.74,
           "end": 28.72,
           "matched": true,
           "heard": "I"
@@ -391,7 +391,7 @@
         {
           "w": "play",
           "start": 29.52,
-          "end": 29.9,
+          "end": 29.94,
           "matched": true,
           "heard": "play."
         }
@@ -399,12 +399,12 @@
     },
     {
       "text": "You play sport.",
-      "start": 30.52,
-      "end": 31.72,
+      "start": 30.46,
+      "end": 31.78,
       "words": [
         {
           "w": "You",
-          "start": 30.52,
+          "start": 30.46,
           "end": 30.88,
           "matched": true,
           "heard": "You"
@@ -419,7 +419,7 @@
         {
           "w": "sport",
           "start": 31.14,
-          "end": 31.72,
+          "end": 31.78,
           "matched": true,
           "heard": "sport,"
         }
@@ -427,12 +427,12 @@
     },
     {
       "text": "You practice.",
-      "start": 32.06,
+      "start": 31.82,
       "end": 33.12,
       "words": [
         {
           "w": "You",
-          "start": 32.06,
+          "start": 31.82,
           "end": 32.6,
           "matched": true,
           "heard": "you"
@@ -470,7 +470,7 @@
     {
       "text": "You learn.",
       "start": 35.14,
-      "end": 35.84,
+      "end": 35.86,
       "words": [
         {
           "w": "You",
@@ -482,7 +482,7 @@
         {
           "w": "learn",
           "start": 35.26,
-          "end": 35.84,
+          "end": 35.86,
           "matched": true,
           "heard": "learn,"
         }
@@ -490,12 +490,12 @@
     },
     {
       "text": "You get better.",
-      "start": 37.34,
+      "start": 36.86,
       "end": 38.94,
       "words": [
         {
           "w": "You",
-          "start": 37.34,
+          "start": 36.86,
           "end": 38.28,
           "matched": true,
           "heard": "you"
@@ -519,7 +519,7 @@
     {
       "text": "And honesty\u2026",
       "start": 38.94,
-      "end": 41.32,
+      "end": 40.68,
       "words": [
         {
           "w": "And",
@@ -531,70 +531,63 @@
         {
           "w": "honesty",
           "start": 40.68,
-          "end": 41.32,
-          "matched": true,
-          "heard": "honesty."
+          "end": 40.68,
+          "matched": false
         }
       ]
     },
     {
       "text": "honesty is no different.",
-      "start": 48.16,
-      "end": 50.84,
+      "start": 40.68,
+      "end": 40.68,
       "words": [
         {
           "w": "honesty",
-          "start": 48.16,
-          "end": 49.4,
-          "matched": true,
-          "heard": "Honesty"
+          "start": 40.68,
+          "end": 40.68,
+          "matched": false
         },
         {
           "w": "is",
-          "start": 49.4,
-          "end": 49.64,
-          "matched": true,
-          "heard": "is"
+          "start": 40.68,
+          "end": 40.68,
+          "matched": false
         },
         {
           "w": "no",
-          "start": 49.64,
-          "end": 49.9,
-          "matched": true,
-          "heard": "no"
+          "start": 40.68,
+          "end": 40.68,
+          "matched": false
         },
         {
           "w": "different",
-          "start": 49.9,
-          "end": 50.84,
-          "matched": true,
-          "heard": "different,"
+          "start": 40.68,
+          "end": 40.68,
+          "matched": false
         }
       ]
     },
     {
       "text": "You play honesty.",
-      "start": 50.84,
-      "end": 55.64,
+      "start": 40.68,
+      "end": 41.34,
       "words": [
         {
           "w": "You",
-          "start": 50.84,
-          "end": 53.92,
-          "matched": true,
-          "heard": "you"
+          "start": 40.68,
+          "end": 40.68,
+          "matched": false
         },
         {
           "w": "play",
-          "start": 53.92,
-          "end": 54.6,
-          "matched": true,
-          "heard": "play"
+          "start": 40.68,
+          "end": 40.68,
+          "matched": false
         },
         {
           "w": "honesty",
-          "start": 54.6,
-          "end": 55.64,
+          "start": 40.68,
+          "end": 41.34,
           "matched": true,
           "heard": "honesty."
         }
@@ -602,19 +595,19 @@
     },
     {
       "text": "Every day.",
-      "start": 59.36,
+      "start": 59.4,
       "end": 60.92,
       "words": [
         {
           "w": "Every",
-          "start": 59.36,
-          "end": 60.6,
+          "start": 59.4,
+          "end": 60.16,
           "matched": true,
           "heard": "Every"
         },
         {
           "w": "day",
-          "start": 60.6,
+          "start": 60.16,
           "end": 60.92,
           "matched": true,
           "heard": "day,"
@@ -623,12 +616,12 @@
     },
     {
       "text": "Every conversation.",
-      "start": 61.32,
-      "end": 62.32,
+      "start": 61.34,
+      "end": 62.3,
       "words": [
         {
           "w": "Every",
-          "start": 61.32,
+          "start": 61.34,
           "end": 61.48,
           "matched": true,
           "heard": "every"
@@ -636,7 +629,7 @@
         {
           "w": "conversation",
           "start": 61.48,
-          "end": 62.32,
+          "end": 62.3,
           "matched": true,
           "heard": "conversation,"
         }
@@ -644,12 +637,12 @@
     },
     {
       "text": "Every mistake.",
-      "start": 62.7,
-      "end": 63.52,
+      "start": 62.72,
+      "end": 63.54,
       "words": [
         {
           "w": "Every",
-          "start": 62.7,
+          "start": 62.72,
           "end": 62.92,
           "matched": true,
           "heard": "every"
@@ -657,7 +650,7 @@
         {
           "w": "mistake",
           "start": 62.92,
-          "end": 63.52,
+          "end": 63.54,
           "matched": true,
           "heard": "mistake,"
         }
@@ -671,20 +664,20 @@
         {
           "w": "Every",
           "start": 63.88,
-          "end": 64.28,
+          "end": 64.26,
           "matched": true,
           "heard": "every"
         },
         {
           "w": "moment",
-          "start": 64.28,
+          "start": 64.26,
           "end": 64.96,
           "matched": true,
           "heard": "moment,"
         },
         {
           "w": "reality",
-          "start": 65.26,
+          "start": 65.2,
           "end": 65.88,
           "matched": true,
           "heard": "reality"
@@ -694,33 +687,33 @@
           "start": 65.88,
           "end": 66.56,
           "matched": true,
-          "heard": "says,"
+          "heard": "says"
         }
       ]
     },
     {
       "text": "\"You were wrong.\"",
       "start": 66.56,
-      "end": 68.3,
+      "end": 68.32,
       "words": [
         {
           "w": "You",
           "start": 66.56,
-          "end": 67.68,
+          "end": 67.7,
           "matched": true,
           "heard": "you"
         },
         {
           "w": "were",
-          "start": 67.68,
-          "end": 67.84,
+          "start": 67.7,
+          "end": 67.9,
           "matched": true,
-          "heard": "are"
+          "heard": "were"
         },
         {
           "w": "wrong",
-          "start": 67.84,
-          "end": 68.3,
+          "start": 67.9,
+          "end": 68.32,
           "matched": true,
           "heard": "wrong."
         }
@@ -728,26 +721,26 @@
     },
     {
       "text": "And then comes the question.",
-      "start": 69.5,
-      "end": 71.08,
+      "start": 69.54,
+      "end": 71.1,
       "words": [
         {
           "w": "And",
-          "start": 69.5,
-          "end": 69.6,
+          "start": 69.54,
+          "end": 69.58,
           "matched": true,
           "heard": "And"
         },
         {
           "w": "then",
-          "start": 69.6,
-          "end": 69.9,
+          "start": 69.58,
+          "end": 69.92,
           "matched": true,
           "heard": "then"
         },
         {
           "w": "comes",
-          "start": 69.9,
+          "start": 69.92,
           "end": 70.38,
           "matched": true,
           "heard": "comes"
@@ -755,14 +748,14 @@
         {
           "w": "the",
           "start": 70.38,
-          "end": 70.6,
+          "end": 70.58,
           "matched": true,
           "heard": "the"
         },
         {
           "w": "question",
-          "start": 70.6,
-          "end": 71.08,
+          "start": 70.58,
+          "end": 71.1,
           "matched": true,
           "heard": "question,"
         }
@@ -770,12 +763,12 @@
     },
     {
       "text": "Do you defend yourself?",
-      "start": 71.42,
+      "start": 71.4,
       "end": 72.94,
       "words": [
         {
           "w": "Do",
-          "start": 71.42,
+          "start": 71.4,
           "end": 71.58,
           "matched": true,
           "heard": "do"
@@ -806,7 +799,7 @@
     {
       "text": "Or do you change?",
       "start": 72.94,
-      "end": 74.7,
+      "end": 74.94,
       "words": [
         {
           "w": "Or",
@@ -832,7 +825,7 @@
         {
           "w": "change",
           "start": 73.98,
-          "end": 74.7,
+          "end": 74.94,
           "matched": true,
           "heard": "change?"
         }
@@ -853,13 +846,13 @@
         {
           "w": "honesty",
           "start": 76.46,
-          "end": 77.12,
+          "end": 77.14,
           "matched": true,
           "heard": "honesty"
         },
         {
           "w": "is",
-          "start": 77.12,
+          "start": 77.14,
           "end": 78.0,
           "matched": true,
           "heard": "is"
@@ -882,12 +875,12 @@
     },
     {
       "text": "\"I was always right.\"",
-      "start": 79.66,
+      "start": 79.72,
       "end": 80.66,
       "words": [
         {
           "w": "I",
-          "start": 79.66,
+          "start": 79.72,
           "end": 79.82,
           "matched": true,
           "heard": "I"
@@ -902,42 +895,42 @@
         {
           "w": "always",
           "start": 79.96,
-          "end": 80.3,
+          "end": 80.28,
           "matched": true,
           "heard": "always"
         },
         {
           "w": "right",
-          "start": 80.3,
+          "start": 80.28,
           "end": 80.66,
           "matched": true,
-          "heard": "right,"
+          "heard": "right."
         }
       ]
     },
     {
       "text": "Honesty is saying:",
       "start": 80.94,
-      "end": 81.92,
+      "end": 81.94,
       "words": [
         {
           "w": "Honesty",
           "start": 80.94,
           "end": 81.32,
           "matched": true,
-          "heard": "honesty"
+          "heard": "Honesty"
         },
         {
           "w": "is",
           "start": 81.32,
-          "end": 81.62,
+          "end": 81.64,
           "matched": true,
           "heard": "is"
         },
         {
           "w": "saying",
-          "start": 81.62,
-          "end": 81.92,
+          "start": 81.64,
+          "end": 81.94,
           "matched": true,
           "heard": "saying,"
         }
@@ -945,19 +938,19 @@
     },
     {
       "text": "\"I thought this.",
-      "start": 82.46,
+      "start": 82.22,
       "end": 83.52,
       "words": [
         {
           "w": "I",
-          "start": 82.46,
-          "end": 82.84,
+          "start": 82.22,
+          "end": 82.88,
           "matched": true,
           "heard": "I"
         },
         {
           "w": "thought",
-          "start": 82.84,
+          "start": 82.88,
           "end": 83.12,
           "matched": true,
           "heard": "thought"
@@ -967,33 +960,33 @@
           "start": 83.12,
           "end": 83.52,
           "matched": true,
-          "heard": "this,"
+          "heard": "this."
         }
       ]
     },
     {
       "text": "I learned that.",
-      "start": 83.72,
-      "end": 84.64,
+      "start": 83.52,
+      "end": 84.6,
       "words": [
         {
           "w": "I",
-          "start": 83.72,
-          "end": 83.9,
+          "start": 83.52,
+          "end": 83.84,
           "matched": true,
           "heard": "I"
         },
         {
           "w": "learned",
-          "start": 83.9,
-          "end": 84.2,
+          "start": 83.84,
+          "end": 84.18,
           "matched": true,
           "heard": "learned"
         },
         {
           "w": "that",
-          "start": 84.2,
-          "end": 84.64,
+          "start": 84.18,
+          "end": 84.6,
           "matched": true,
           "heard": "that"
         }
@@ -1001,12 +994,12 @@
     },
     {
       "text": "And now\u2026",
-      "start": 84.64,
-      "end": 85.42,
+      "start": 84.6,
+      "end": 85.46,
       "words": [
         {
           "w": "And",
-          "start": 84.64,
+          "start": 84.6,
           "end": 85.02,
           "matched": true,
           "heard": "and"
@@ -1014,7 +1007,7 @@
         {
           "w": "now",
           "start": 85.02,
-          "end": 85.42,
+          "end": 85.46,
           "matched": true,
           "heard": "now"
         }
@@ -1022,12 +1015,12 @@
     },
     {
       "text": "I think something closer to true.\"",
-      "start": 85.42,
+      "start": 85.46,
       "end": 88.32,
       "words": [
         {
           "w": "I",
-          "start": 85.42,
+          "start": 85.46,
           "end": 86.56,
           "matched": true,
           "heard": "I"
@@ -1042,13 +1035,13 @@
         {
           "w": "something",
           "start": 86.8,
-          "end": 87.18,
+          "end": 87.2,
           "matched": true,
           "heard": "something"
         },
         {
           "w": "closer",
-          "start": 87.18,
+          "start": 87.2,
           "end": 87.68,
           "matched": true,
           "heard": "closer"
@@ -1056,13 +1049,13 @@
         {
           "w": "to",
           "start": 87.68,
-          "end": 87.94,
+          "end": 87.96,
           "matched": true,
           "heard": "to"
         },
         {
           "w": "true",
-          "start": 87.94,
+          "start": 87.96,
           "end": 88.32,
           "matched": true,
           "heard": "true."
@@ -1071,19 +1064,19 @@
     },
     {
       "text": "That is not weakness.",
-      "start": 89.22,
+      "start": 89.12,
       "end": 90.26,
       "words": [
         {
           "w": "That",
-          "start": 89.22,
-          "end": 89.48,
+          "start": 89.12,
+          "end": 89.46,
           "matched": true,
           "heard": "That"
         },
         {
           "w": "is",
-          "start": 89.48,
+          "start": 89.46,
           "end": 89.62,
           "matched": true,
           "heard": "is"
@@ -1091,13 +1084,13 @@
         {
           "w": "not",
           "start": 89.62,
-          "end": 89.86,
+          "end": 89.84,
           "matched": true,
           "heard": "not"
         },
         {
           "w": "weakness",
-          "start": 89.86,
+          "start": 89.84,
           "end": 90.26,
           "matched": true,
           "heard": "weakness,"
@@ -1106,27 +1099,27 @@
     },
     {
       "text": "That is growth.",
-      "start": 90.26,
-      "end": 91.4,
+      "start": 90.48,
+      "end": 91.42,
       "words": [
         {
           "w": "That",
-          "start": 90.26,
-          "end": 90.78,
+          "start": 90.48,
+          "end": 90.76,
           "matched": true,
           "heard": "that"
         },
         {
           "w": "is",
-          "start": 90.78,
-          "end": 90.94,
+          "start": 90.76,
+          "end": 90.96,
           "matched": true,
           "heard": "is"
         },
         {
           "w": "growth",
-          "start": 90.94,
-          "end": 91.4,
+          "start": 90.96,
+          "end": 91.42,
           "matched": true,
           "heard": "growth,"
         }
@@ -1134,12 +1127,12 @@
     },
     {
       "text": "That is courage.",
-      "start": 91.74,
-      "end": 92.66,
+      "start": 91.9,
+      "end": 92.64,
       "words": [
         {
           "w": "That",
-          "start": 91.74,
+          "start": 91.9,
           "end": 91.94,
           "matched": true,
           "heard": "that"
@@ -1147,41 +1140,41 @@
         {
           "w": "is",
           "start": 91.94,
-          "end": 92.12,
+          "end": 92.14,
           "matched": true,
           "heard": "is"
         },
         {
           "w": "courage",
-          "start": 92.12,
-          "end": 92.66,
+          "start": 92.14,
+          "end": 92.64,
           "matched": true,
-          "heard": "courage,"
+          "heard": "courage"
         }
       ]
     },
     {
       "text": "Because the goal of life",
-      "start": 92.68,
+      "start": 92.64,
       "end": 94.14,
       "words": [
         {
           "w": "Because",
-          "start": 92.68,
-          "end": 93.1,
+          "start": 92.64,
+          "end": 93.06,
           "matched": true,
           "heard": "because"
         },
         {
           "w": "the",
-          "start": 93.1,
-          "end": 93.32,
+          "start": 93.06,
+          "end": 93.34,
           "matched": true,
           "heard": "the"
         },
         {
           "w": "goal",
-          "start": 93.32,
+          "start": 93.34,
           "end": 93.54,
           "matched": true,
           "heard": "goal"
@@ -1205,7 +1198,7 @@
     {
       "text": "is not to become someone",
       "start": 94.14,
-      "end": 96.14,
+      "end": 96.12,
       "words": [
         {
           "w": "is",
@@ -1217,13 +1210,13 @@
         {
           "w": "not",
           "start": 94.58,
-          "end": 94.86,
+          "end": 94.84,
           "matched": true,
           "heard": "not"
         },
         {
           "w": "to",
-          "start": 94.86,
+          "start": 94.84,
           "end": 95.04,
           "matched": true,
           "heard": "to"
@@ -1231,14 +1224,14 @@
         {
           "w": "become",
           "start": 95.04,
-          "end": 95.42,
+          "end": 95.4,
           "matched": true,
           "heard": "become"
         },
         {
           "w": "someone",
-          "start": 95.42,
-          "end": 96.14,
+          "start": 95.4,
+          "end": 96.12,
           "matched": true,
           "heard": "someone"
         }
@@ -1246,19 +1239,19 @@
     },
     {
       "text": "who never changes.",
-      "start": 96.14,
-      "end": 98.98,
+      "start": 96.12,
+      "end": 98.92,
       "words": [
         {
           "w": "who",
-          "start": 96.14,
-          "end": 97.7,
+          "start": 96.12,
+          "end": 97.68,
           "matched": true,
           "heard": "who"
         },
         {
           "w": "never",
-          "start": 97.7,
+          "start": 97.68,
           "end": 98.18,
           "matched": true,
           "heard": "never"
@@ -1266,7 +1259,7 @@
         {
           "w": "changes",
           "start": 98.18,
-          "end": 98.98,
+          "end": 98.92,
           "matched": true,
           "heard": "changes."
         }
@@ -1275,7 +1268,7 @@
     {
       "text": "The goal is to become someone",
       "start": 99.48,
-      "end": 101.88,
+      "end": 101.86,
       "words": [
         {
           "w": "The",
@@ -1287,13 +1280,13 @@
         {
           "w": "goal",
           "start": 99.56,
-          "end": 99.86,
+          "end": 99.88,
           "matched": true,
           "heard": "goal"
         },
         {
           "w": "is",
-          "start": 99.86,
+          "start": 99.88,
           "end": 100.12,
           "matched": true,
           "heard": "is"
@@ -1301,13 +1294,13 @@
         {
           "w": "to",
           "start": 100.12,
-          "end": 100.42,
+          "end": 100.4,
           "matched": true,
           "heard": "to"
         },
         {
           "w": "become",
-          "start": 100.42,
+          "start": 100.4,
           "end": 100.9,
           "matched": true,
           "heard": "become"
@@ -1315,7 +1308,7 @@
         {
           "w": "someone",
           "start": 100.9,
-          "end": 101.88,
+          "end": 101.86,
           "matched": true,
           "heard": "someone"
         }
@@ -1323,12 +1316,12 @@
     },
     {
       "text": "who changes well.",
-      "start": 101.88,
+      "start": 101.86,
       "end": 103.58,
       "words": [
         {
           "w": "who",
-          "start": 101.88,
+          "start": 101.86,
           "end": 102.36,
           "matched": true,
           "heard": "who"
@@ -1336,48 +1329,48 @@
         {
           "w": "changes",
           "start": 102.36,
-          "end": 102.9,
+          "end": 102.88,
           "matched": true,
           "heard": "changes"
         },
         {
           "w": "well",
-          "start": 102.9,
+          "start": 102.88,
           "end": 103.58,
           "matched": true,
-          "heard": "well,"
+          "heard": "well."
         }
       ]
     },
     {
       "text": "A compass is not faithful",
-      "start": 103.58,
-      "end": 106.04,
+      "start": 104.06,
+      "end": 106.02,
       "words": [
         {
           "w": "A",
-          "start": 103.58,
+          "start": 104.06,
           "end": 104.28,
           "matched": true,
-          "heard": "a"
+          "heard": "A"
         },
         {
           "w": "compass",
           "start": 104.28,
-          "end": 104.62,
+          "end": 104.6,
           "matched": true,
           "heard": "compass"
         },
         {
           "w": "is",
-          "start": 104.62,
-          "end": 104.96,
+          "start": 104.6,
+          "end": 104.94,
           "matched": true,
           "heard": "is"
         },
         {
           "w": "not",
-          "start": 104.96,
+          "start": 104.94,
           "end": 105.22,
           "matched": true,
           "heard": "not"
@@ -1385,27 +1378,27 @@
         {
           "w": "faithful",
           "start": 105.22,
-          "end": 106.04,
+          "end": 106.02,
           "matched": true,
-          "heard": "faithful,"
+          "heard": "faithful"
         }
       ]
     },
     {
       "text": "because it never moves.",
-      "start": 106.62,
-      "end": 108.0,
+      "start": 106.02,
+      "end": 108.02,
       "words": [
         {
           "w": "because",
-          "start": 106.62,
-          "end": 106.92,
+          "start": 106.02,
+          "end": 106.9,
           "matched": true,
           "heard": "because"
         },
         {
           "w": "it",
-          "start": 106.92,
+          "start": 106.9,
           "end": 107.08,
           "matched": true,
           "heard": "it"
@@ -1413,14 +1406,14 @@
         {
           "w": "never",
           "start": 107.08,
-          "end": 107.36,
+          "end": 107.34,
           "matched": true,
           "heard": "never"
         },
         {
           "w": "moves",
-          "start": 107.36,
-          "end": 108.0,
+          "start": 107.34,
+          "end": 108.02,
           "matched": true,
           "heard": "moves."
         }
@@ -1428,19 +1421,19 @@
     },
     {
       "text": "A frozen needle is not loyal to north \u2014",
-      "start": 108.46,
+      "start": 108.44,
       "end": 111.1,
       "words": [
         {
           "w": "A",
-          "start": 108.46,
-          "end": 108.54,
+          "start": 108.44,
+          "end": 108.56,
           "matched": true,
           "heard": "A"
         },
         {
           "w": "frozen",
-          "start": 108.54,
+          "start": 108.56,
           "end": 108.78,
           "matched": true,
           "heard": "frozen"
@@ -1448,20 +1441,20 @@
         {
           "w": "needle",
           "start": 108.78,
-          "end": 109.04,
+          "end": 109.06,
           "matched": true,
           "heard": "needle"
         },
         {
           "w": "is",
-          "start": 109.04,
-          "end": 109.38,
+          "start": 109.06,
+          "end": 109.4,
           "matched": true,
           "heard": "is"
         },
         {
           "w": "not",
-          "start": 109.38,
+          "start": 109.4,
           "end": 109.72,
           "matched": true,
           "heard": "not"
@@ -1485,25 +1478,25 @@
           "start": 110.52,
           "end": 111.1,
           "matched": true,
-          "heard": "north,"
+          "heard": "north."
         }
       ]
     },
     {
       "text": "it is only stuck.",
-      "start": 111.34,
-      "end": 112.54,
+      "start": 111.1,
+      "end": 112.58,
       "words": [
         {
           "w": "it",
-          "start": 111.34,
-          "end": 111.54,
+          "start": 111.1,
+          "end": 111.52,
           "matched": true,
-          "heard": "it"
+          "heard": "It"
         },
         {
           "w": "is",
-          "start": 111.54,
+          "start": 111.52,
           "end": 111.7,
           "matched": true,
           "heard": "is"
@@ -1511,14 +1504,14 @@
         {
           "w": "only",
           "start": 111.7,
-          "end": 112.08,
+          "end": 112.06,
           "matched": true,
           "heard": "only"
         },
         {
           "w": "stuck",
-          "start": 112.08,
-          "end": 112.54,
+          "start": 112.06,
+          "end": 112.58,
           "matched": true,
           "heard": "stuck."
         }
@@ -1526,12 +1519,12 @@
     },
     {
       "text": "The needle keeps faith with north",
-      "start": 113.28,
+      "start": 113.34,
       "end": 115.7,
       "words": [
         {
           "w": "The",
-          "start": 113.28,
+          "start": 113.34,
           "end": 113.44,
           "matched": true,
           "heard": "The"
@@ -1539,34 +1532,34 @@
         {
           "w": "needle",
           "start": 113.44,
-          "end": 113.64,
+          "end": 113.62,
           "matched": true,
           "heard": "needle"
         },
         {
           "w": "keeps",
-          "start": 113.64,
-          "end": 113.94,
+          "start": 113.62,
+          "end": 113.96,
           "matched": true,
           "heard": "keeps"
         },
         {
           "w": "faith",
-          "start": 113.94,
-          "end": 114.72,
+          "start": 113.96,
+          "end": 114.64,
           "matched": true,
           "heard": "faith"
         },
         {
           "w": "with",
-          "start": 114.72,
-          "end": 115.04,
+          "start": 114.64,
+          "end": 115.06,
           "matched": true,
           "heard": "with"
         },
         {
           "w": "north",
-          "start": 115.04,
+          "start": 115.06,
           "end": 115.7,
           "matched": true,
           "heard": "north"
@@ -1576,7 +1569,7 @@
     {
       "text": "by moving.",
       "start": 115.7,
-      "end": 116.8,
+      "end": 116.82,
       "words": [
         {
           "w": "by",
@@ -1588,7 +1581,7 @@
         {
           "w": "moving",
           "start": 116.24,
-          "end": 116.8,
+          "end": 116.82,
           "matched": true,
           "heard": "moving,"
         }
@@ -1597,18 +1590,18 @@
     {
       "text": "Turn, and the needle swings back.",
       "start": 117.54,
-      "end": 120.36,
+      "end": 120.34,
       "words": [
         {
           "w": "Turn",
           "start": 117.54,
-          "end": 117.92,
+          "end": 117.9,
           "matched": true,
           "heard": "turn"
         },
         {
           "w": "and",
-          "start": 117.92,
+          "start": 117.9,
           "end": 118.46,
           "matched": true,
           "heard": "and"
@@ -1637,7 +1630,7 @@
         {
           "w": "back",
           "start": 119.68,
-          "end": 120.36,
+          "end": 120.34,
           "matched": true,
           "heard": "back"
         }
@@ -1645,12 +1638,12 @@
     },
     {
       "text": "Every time.",
-      "start": 120.36,
-      "end": 121.48,
+      "start": 120.34,
+      "end": 121.42,
       "words": [
         {
           "w": "Every",
-          "start": 120.36,
+          "start": 120.34,
           "end": 120.86,
           "matched": true,
           "heard": "every"
@@ -1658,7 +1651,7 @@
         {
           "w": "time",
           "start": 120.86,
-          "end": 121.48,
+          "end": 121.42,
           "matched": true,
           "heard": "time."
         }
@@ -1666,26 +1659,26 @@
     },
     {
       "text": "And maybe honesty is exactly that.",
-      "start": 121.88,
+      "start": 122.24,
       "end": 124.62,
       "words": [
         {
           "w": "And",
-          "start": 121.88,
-          "end": 122.32,
+          "start": 122.24,
+          "end": 122.36,
           "matched": true,
           "heard": "And"
         },
         {
           "w": "maybe",
-          "start": 122.32,
-          "end": 122.58,
+          "start": 122.36,
+          "end": 122.6,
           "matched": true,
           "heard": "maybe"
         },
         {
           "w": "honesty",
-          "start": 122.58,
+          "start": 122.6,
           "end": 123.16,
           "matched": true,
           "heard": "honesty"
@@ -1715,54 +1708,55 @@
     },
     {
       "text": "Not:",
-      "start": 124.72,
-      "end": 124.82,
+      "start": 124.82,
+      "end": 124.92,
       "words": [
         {
           "w": "Not",
-          "start": 124.72,
-          "end": 124.82,
-          "matched": false
+          "start": 124.82,
+          "end": 124.92,
+          "matched": true,
+          "heard": "not,"
         }
       ]
     },
     {
       "text": "\"I never change.\"",
-      "start": 124.82,
-      "end": 129.86,
+      "start": 126.96,
+      "end": 129.82,
       "words": [
         {
           "w": "I",
-          "start": 124.82,
-          "end": 125.12,
+          "start": 126.96,
+          "end": 128.96,
           "matched": true,
           "heard": "I"
         },
         {
           "w": "never",
-          "start": 125.12,
-          "end": 129.2,
+          "start": 128.96,
+          "end": 129.22,
           "matched": true,
           "heard": "never"
         },
         {
           "w": "change",
-          "start": 129.2,
-          "end": 129.86,
+          "start": 129.22,
+          "end": 129.82,
           "matched": true,
-          "heard": "change,"
+          "heard": "change"
         }
       ]
     },
     {
       "text": "But:",
-      "start": 133.2,
-      "end": 133.9,
+      "start": 129.82,
+      "end": 133.86,
       "words": [
         {
           "w": "But",
-          "start": 133.2,
-          "end": 133.9,
+          "start": 129.82,
+          "end": 133.86,
           "matched": true,
           "heard": "but"
         }
@@ -1770,12 +1764,12 @@
     },
     {
       "text": "\"I keep turning toward what is real.\"",
-      "start": 133.9,
-      "end": 136.86,
+      "start": 133.86,
+      "end": 136.84,
       "words": [
         {
           "w": "I",
-          "start": 133.9,
+          "start": 133.86,
           "end": 134.62,
           "matched": true,
           "heard": "I"
@@ -1818,7 +1812,7 @@
         {
           "w": "real",
           "start": 136.32,
-          "end": 136.86,
+          "end": 136.84,
           "matched": true,
           "heard": "real."
         }
@@ -1826,26 +1820,26 @@
     },
     {
       "text": "Someone who can look reality in the eye",
-      "start": 138.58,
+      "start": 136.84,
       "end": 141.44,
       "words": [
         {
           "w": "Someone",
-          "start": 138.58,
-          "end": 138.82,
+          "start": 136.84,
+          "end": 138.68,
           "matched": true,
           "heard": "Someone"
         },
         {
           "w": "who",
-          "start": 138.82,
-          "end": 139.12,
+          "start": 138.68,
+          "end": 139.1,
           "matched": true,
           "heard": "who"
         },
         {
           "w": "can",
-          "start": 139.12,
+          "start": 139.1,
           "end": 139.36,
           "matched": true,
           "heard": "can"
@@ -1853,20 +1847,20 @@
         {
           "w": "look",
           "start": 139.36,
-          "end": 139.62,
+          "end": 139.6,
           "matched": true,
           "heard": "look"
         },
         {
           "w": "reality",
-          "start": 139.62,
-          "end": 140.24,
+          "start": 139.6,
+          "end": 140.22,
           "matched": true,
           "heard": "reality"
         },
         {
           "w": "in",
-          "start": 140.24,
+          "start": 140.22,
           "end": 140.62,
           "matched": true,
           "heard": "in"
@@ -1874,13 +1868,13 @@
         {
           "w": "the",
           "start": 140.62,
-          "end": 140.88,
+          "end": 140.92,
           "matched": true,
           "heard": "the"
         },
         {
           "w": "eye",
-          "start": 140.88,
+          "start": 140.92,
           "end": 141.44,
           "matched": true,
           "heard": "eye"
@@ -1890,19 +1884,19 @@
     {
       "text": "and say:",
       "start": 141.44,
-      "end": 143.0,
+      "end": 142.94,
       "words": [
         {
           "w": "and",
           "start": 141.44,
-          "end": 142.56,
+          "end": 142.58,
           "matched": true,
           "heard": "and"
         },
         {
           "w": "say",
-          "start": 142.56,
-          "end": 143.0,
+          "start": 142.58,
+          "end": 142.94,
           "matched": true,
           "heard": "say,"
         }
@@ -1910,20 +1904,20 @@
     },
     {
       "text": "\"Teach me.\"",
-      "start": 143.5,
-      "end": 144.4,
+      "start": 143.48,
+      "end": 144.52,
       "words": [
         {
           "w": "Teach",
-          "start": 143.5,
-          "end": 143.66,
+          "start": 143.48,
+          "end": 143.64,
           "matched": true,
           "heard": "teach"
         },
         {
           "w": "me",
-          "start": 143.66,
-          "end": 144.4,
+          "start": 143.64,
+          "end": 144.52,
           "matched": true,
           "heard": "me"
         }
@@ -1931,32 +1925,32 @@
     },
     {
       "text": "Again.",
-      "start": 144.4,
-      "end": 144.4,
+      "start": 144.52,
+      "end": 144.52,
       "words": [
         {
           "w": "Again",
-          "start": 144.4,
-          "end": 144.4,
+          "start": 144.52,
+          "end": 144.52,
           "matched": false
         }
       ]
     },
     {
       "text": "And again.",
-      "start": 144.4,
-      "end": 145.54,
+      "start": 144.52,
+      "end": 145.48,
       "words": [
         {
           "w": "And",
-          "start": 144.4,
-          "end": 144.4,
+          "start": 144.52,
+          "end": 144.52,
           "matched": false
         },
         {
           "w": "again",
-          "start": 144.4,
-          "end": 145.54,
+          "start": 144.52,
+          "end": 145.48,
           "matched": true,
           "heard": "again"
         }
@@ -1964,36 +1958,36 @@
     },
     {
       "text": "And again.",
-      "start": 145.54,
-      "end": 148.2,
+      "start": 145.48,
+      "end": 148.22,
       "words": [
         {
           "w": "And",
-          "start": 145.54,
-          "end": 147.32,
+          "start": 145.48,
+          "end": 147.3,
           "matched": true,
           "heard": "and"
         },
         {
           "w": "again",
-          "start": 147.32,
-          "end": 148.2,
+          "start": 147.3,
+          "end": 148.22,
           "matched": true,
-          "heard": "again."
+          "heard": "again"
         }
       ]
     },
     {
       "text": "Because honesty is not what you are.",
-      "start": 148.2,
-      "end": 153.04,
+      "start": 148.22,
+      "end": 153.24,
       "words": [
         {
           "w": "Because",
-          "start": 148.2,
+          "start": 148.22,
           "end": 150.18,
           "matched": true,
-          "heard": "Because"
+          "heard": "because"
         },
         {
           "w": "honesty",
@@ -2012,13 +2006,13 @@
         {
           "w": "not",
           "start": 151.4,
-          "end": 151.72,
+          "end": 151.74,
           "matched": true,
           "heard": "not"
         },
         {
           "w": "what",
-          "start": 151.72,
+          "start": 151.74,
           "end": 152.26,
           "matched": true,
           "heard": "who"
@@ -2026,41 +2020,41 @@
         {
           "w": "you",
           "start": 152.26,
-          "end": 152.56,
+          "end": 152.54,
           "matched": true,
           "heard": "you"
         },
         {
           "w": "are",
-          "start": 152.56,
-          "end": 153.04,
+          "start": 152.54,
+          "end": 153.24,
           "matched": true,
-          "heard": "are,"
+          "heard": "are."
         }
       ]
     },
     {
       "text": "It is how you become.",
-      "start": 153.04,
-      "end": 159.8,
+      "start": 156.34,
+      "end": 159.76,
       "words": [
         {
           "w": "It",
-          "start": 153.04,
+          "start": 156.34,
           "end": 157.7,
           "matched": true,
-          "heard": "it"
+          "heard": "It"
         },
         {
           "w": "is",
           "start": 157.7,
-          "end": 158.06,
+          "end": 158.08,
           "matched": true,
           "heard": "is"
         },
         {
           "w": "how",
-          "start": 158.06,
+          "start": 158.08,
           "end": 158.92,
           "matched": true,
           "heard": "how"
@@ -2068,27 +2062,27 @@
         {
           "w": "you",
           "start": 158.92,
-          "end": 159.22,
+          "end": 159.24,
           "matched": true,
           "heard": "you"
         },
         {
           "w": "become",
-          "start": 159.22,
-          "end": 159.8,
+          "start": 159.24,
+          "end": 159.76,
           "matched": true,
-          "heard": "become,"
+          "heard": "become"
         }
       ]
     },
     {
       "text": "How you come home.",
-      "start": 161.04,
-      "end": 162.4,
+      "start": 159.76,
+      "end": 164.44,
       "words": [
         {
           "w": "How",
-          "start": 161.04,
+          "start": 159.76,
           "end": 161.22,
           "matched": true,
           "heard": "how"
@@ -2103,64 +2097,64 @@
         {
           "w": "come",
           "start": 161.52,
-          "end": 161.86,
+          "end": 161.84,
           "matched": true,
-          "heard": "become"
+          "heard": "come"
         },
         {
           "w": "home",
-          "start": 161.86,
-          "end": 162.4,
+          "start": 161.84,
+          "end": 164.44,
           "matched": true,
-          "heard": "whole."
+          "heard": "home."
         }
       ]
     }
   ],
   "transcriptSegments": [
     {
-      "start": 3.76,
+      "start": 3.82,
       "end": 13.38,
-      "text": "People say, I am honest, as if honesty is something you own, like the color of your",
+      "text": "People say I am honest, as if honesty is something you own, like the color of your",
       "words": [
         {
           "w": "People",
-          "start": 3.76,
+          "start": 3.82,
           "end": 4.5
         },
         {
-          "w": "say,",
+          "w": "say",
           "start": 4.5,
           "end": 4.9
         },
         {
           "w": "I",
-          "start": 6.22,
-          "end": 7.06
+          "start": 4.9,
+          "end": 7.04
         },
         {
           "w": "am",
-          "start": 7.06,
-          "end": 7.24
+          "start": 7.04,
+          "end": 7.22
         },
         {
           "w": "honest,",
-          "start": 7.24,
+          "start": 7.22,
           "end": 7.72
         },
         {
           "w": "as",
-          "start": 8.72,
+          "start": 7.84,
           "end": 9.52
         },
         {
           "w": "if",
           "start": 9.52,
-          "end": 9.7
+          "end": 9.68
         },
         {
           "w": "honesty",
-          "start": 9.7,
+          "start": 9.68,
           "end": 10.14
         },
         {
@@ -2181,7 +2175,7 @@
         {
           "w": "own,",
           "start": 10.88,
-          "end": 11.28
+          "end": 11.3
         },
         {
           "w": "like",
@@ -2212,7 +2206,7 @@
     },
     {
       "start": 13.38,
-      "end": 21.12,
+      "end": 21.14,
       "text": "eyes, like your height, like a trophy you once won and keep forever.",
       "words": [
         {
@@ -2237,7 +2231,7 @@
         },
         {
           "w": "like",
-          "start": 17.26,
+          "start": 17.16,
           "end": 17.56
         },
         {
@@ -2263,11 +2257,11 @@
         {
           "w": "won",
           "start": 18.62,
-          "end": 19.04
+          "end": 19.06
         },
         {
           "w": "and",
-          "start": 19.04,
+          "start": 19.06,
           "end": 20.26
         },
         {
@@ -2278,18 +2272,18 @@
         {
           "w": "forever.",
           "start": 20.54,
-          "end": 21.12
+          "end": 21.14
         }
       ]
     },
     {
-      "start": 22.8,
+      "start": 22.78,
       "end": 24.64,
       "text": "But that is not how honesty works.",
       "words": [
         {
           "w": "But",
-          "start": 22.47,
+          "start": 22.5,
           "end": 22.84
         },
         {
@@ -2300,11 +2294,11 @@
         {
           "w": "is",
           "start": 23.0,
-          "end": 23.16
+          "end": 23.14
         },
         {
           "w": "not",
-          "start": 23.16,
+          "start": 23.14,
           "end": 23.36
         },
         {
@@ -2326,22 +2320,22 @@
     },
     {
       "start": 24.64,
-      "end": 29.9,
-      "text": "Nobody says, I am the sport I play.",
+      "end": 29.94,
+      "text": "Nobody says I am the sport I play.",
       "words": [
         {
           "w": "Nobody",
           "start": 24.64,
-          "end": 26.22
+          "end": 26.24
         },
         {
-          "w": "says,",
-          "start": 26.22,
+          "w": "says",
+          "start": 26.24,
           "end": 26.74
         },
         {
           "w": "I",
-          "start": 28.66,
+          "start": 26.74,
           "end": 28.72
         },
         {
@@ -2367,18 +2361,18 @@
         {
           "w": "play.",
           "start": 29.52,
-          "end": 29.9
+          "end": 29.94
         }
       ]
     },
     {
-      "start": 30.52,
-      "end": 41.32,
+      "start": 30.46,
+      "end": 41.34,
       "text": "You play sport, you practice, you lose, you learn, you get better and honesty.",
       "words": [
         {
           "w": "You",
-          "start": 30.52,
+          "start": 30.46,
           "end": 30.88
         },
         {
@@ -2389,11 +2383,11 @@
         {
           "w": "sport,",
           "start": 31.14,
-          "end": 31.72
+          "end": 31.78
         },
         {
           "w": "you",
-          "start": 32.06,
+          "start": 31.82,
           "end": 32.6
         },
         {
@@ -2419,11 +2413,11 @@
         {
           "w": "learn,",
           "start": 35.26,
-          "end": 35.84
+          "end": 35.86
         },
         {
           "w": "you",
-          "start": 37.34,
+          "start": 36.86,
           "end": 38.28
         },
         {
@@ -2444,164 +2438,115 @@
         {
           "w": "honesty.",
           "start": 40.68,
-          "end": 41.32
+          "end": 41.34
         }
       ]
     },
     {
-      "start": 48.16,
-      "end": 55.64,
-      "text": "Honesty is no different, you play honesty.",
-      "words": [
-        {
-          "w": "Honesty",
-          "start": 48.16,
-          "end": 49.4
-        },
-        {
-          "w": "is",
-          "start": 49.4,
-          "end": 49.64
-        },
-        {
-          "w": "no",
-          "start": 49.64,
-          "end": 49.9
-        },
-        {
-          "w": "different,",
-          "start": 49.9,
-          "end": 50.84
-        },
-        {
-          "w": "you",
-          "start": 50.84,
-          "end": 53.92
-        },
-        {
-          "w": "play",
-          "start": 53.92,
-          "end": 54.6
-        },
-        {
-          "w": "honesty.",
-          "start": 54.6,
-          "end": 55.64
-        }
-      ]
-    },
-    {
-      "start": 59.36,
-      "end": 66.56,
-      "text": "Every day, every conversation, every mistake, every moment, reality says,",
+      "start": 59.4,
+      "end": 68.32,
+      "text": "Every day, every conversation, every mistake, every moment, reality says you were wrong.",
       "words": [
         {
           "w": "Every",
-          "start": 59.36,
-          "end": 60.6
+          "start": 59.4,
+          "end": 60.16
         },
         {
           "w": "day,",
-          "start": 60.6,
+          "start": 60.16,
           "end": 60.92
         },
         {
           "w": "every",
-          "start": 61.32,
+          "start": 61.34,
           "end": 61.48
         },
         {
           "w": "conversation,",
           "start": 61.48,
-          "end": 62.32
+          "end": 62.3
         },
         {
           "w": "every",
-          "start": 62.7,
+          "start": 62.72,
           "end": 62.92
         },
         {
           "w": "mistake,",
           "start": 62.92,
-          "end": 63.52
+          "end": 63.54
         },
         {
           "w": "every",
           "start": 63.88,
-          "end": 64.28
+          "end": 64.26
         },
         {
           "w": "moment,",
-          "start": 64.28,
+          "start": 64.26,
           "end": 64.96
         },
         {
           "w": "reality",
-          "start": 65.26,
+          "start": 65.2,
           "end": 65.88
         },
         {
-          "w": "says,",
+          "w": "says",
           "start": 65.88,
           "end": 66.56
-        }
-      ]
-    },
-    {
-      "start": 66.56,
-      "end": 68.3,
-      "text": "you are wrong.",
-      "words": [
+        },
         {
           "w": "you",
           "start": 66.56,
-          "end": 67.68
+          "end": 67.7
         },
         {
-          "w": "are",
-          "start": 67.68,
-          "end": 67.84
+          "w": "were",
+          "start": 67.7,
+          "end": 67.9
         },
         {
           "w": "wrong.",
-          "start": 67.84,
-          "end": 68.3
+          "start": 67.9,
+          "end": 68.32
         }
       ]
     },
     {
-      "start": 69.5,
-      "end": 74.7,
+      "start": 69.54,
+      "end": 74.94,
       "text": "And then comes the question, do you defend yourself or do you change?",
       "words": [
         {
           "w": "And",
-          "start": 69.5,
-          "end": 69.6
+          "start": 69.54,
+          "end": 69.58
         },
         {
           "w": "then",
-          "start": 69.6,
-          "end": 69.9
+          "start": 69.58,
+          "end": 69.92
         },
         {
           "w": "comes",
-          "start": 69.9,
+          "start": 69.92,
           "end": 70.38
         },
         {
           "w": "the",
           "start": 70.38,
-          "end": 70.6
+          "end": 70.58
         },
         {
           "w": "question,",
-          "start": 70.6,
-          "end": 71.08
+          "start": 70.58,
+          "end": 71.1
         },
         {
           "w": "do",
-          "start": 71.42,
+          "start": 71.4,
           "end": 71.58
         },
         {
@@ -2637,7 +2582,7 @@
         {
           "w": "change?",
           "start": 73.98,
-          "end": 74.7
+          "end": 74.94
         }
       ]
     },
@@ -2654,11 +2599,11 @@
         {
           "w": "honesty",
           "start": 76.46,
-          "end": 77.12
+          "end": 77.14
         },
         {
           "w": "is",
-          "start": 77.12,
+          "start": 77.14,
           "end": 78.0
         },
         {
@@ -2674,13 +2619,13 @@
       ]
     },
     {
-      "start": 79.66,
-      "end": 86.8,
-      "text": "I was always right, honesty is saying, I thought this, I learned that and now I think",
+      "start": 79.72,
+      "end": 80.66,
+      "text": "I was always right.",
       "words": [
         {
           "w": "I",
-          "start": 79.66,
+          "start": 79.72,
           "end": 79.82
         },
         {
@@ -2691,175 +2636,182 @@
         {
           "w": "always",
           "start": 79.96,
-          "end": 80.3
+          "end": 80.28
         },
         {
-          "w": "right,",
-          "start": 80.3,
+          "w": "right.",
+          "start": 80.28,
           "end": 80.66
-        },
+        }
+      ]
+    },
+    {
+      "start": 80.94,
+      "end": 83.52,
+      "text": "Honesty is saying, I thought this.",
+      "words": [
         {
-          "w": "honesty",
+          "w": "Honesty",
           "start": 80.94,
           "end": 81.32
         },
         {
           "w": "is",
           "start": 81.32,
-          "end": 81.62
+          "end": 81.64
         },
         {
           "w": "saying,",
-          "start": 81.62,
-          "end": 81.92
+          "start": 81.64,
+          "end": 81.94
         },
         {
           "w": "I",
-          "start": 82.46,
-          "end": 82.84
+          "start": 82.22,
+          "end": 82.88
         },
         {
           "w": "thought",
-          "start": 82.84,
+          "start": 82.88,
           "end": 83.12
         },
         {
-          "w": "this,",
+          "w": "this.",
           "start": 83.12,
           "end": 83.52
-        },
+        }
+      ]
+    },
+    {
+      "start": 83.52,
+      "end": 88.32,
+      "text": "I learned that and now I think something closer to true.",
+      "words": [
         {
           "w": "I",
-          "start": 83.72,
-          "end": 83.9
+          "start": 83.52,
+          "end": 83.84
         },
         {
           "w": "learned",
-          "start": 83.9,
-          "end": 84.2
+          "start": 83.84,
+          "end": 84.18
         },
         {
           "w": "that",
-          "start": 84.2,
-          "end": 84.64
+          "start": 84.18,
+          "end": 84.6
         },
         {
           "w": "and",
-          "start": 84.64,
+          "start": 84.6,
           "end": 85.02
         },
         {
           "w": "now",
           "start": 85.02,
-          "end": 85.42
+          "end": 85.46
         },
         {
           "w": "I",
-          "start": 85.42,
+          "start": 85.46,
           "end": 86.56
         },
         {
           "w": "think",
           "start": 86.56,
           "end": 86.8
-        }
-      ]
-    },
-    {
-      "start": 86.8,
-      "end": 88.32,
-      "text": "something closer to true.",
-      "words": [
+        },
         {
           "w": "something",
           "start": 86.8,
-          "end": 87.18
+          "end": 87.2
         },
         {
           "w": "closer",
-          "start": 87.18,
+          "start": 87.2,
           "end": 87.68
         },
         {
           "w": "to",
           "start": 87.68,
-          "end": 87.94
+          "end": 87.96
         },
         {
           "w": "true.",
-          "start": 87.94,
+          "start": 87.96,
           "end": 88.32
         }
       ]
     },
     {
-      "start": 89.22,
-      "end": 94.58,
-      "text": "That is not weakness, that is growth, that is courage, because the goal of life is",
+      "start": 89.44,
+      "end": 94.84,
+      "text": "That is not weakness, that is growth, that is courage because the goal of life is not",
       "words": [
         {
           "w": "That",
-          "start": 89.22,
-          "end": 89.48
+          "start": 89.12,
+          "end": 89.46
         },
         {
           "w": "is",
-          "start": 89.48,
+          "start": 89.46,
           "end": 89.62
         },
         {
           "w": "not",
           "start": 89.62,
-          "end": 89.86
+          "end": 89.84
         },
         {
           "w": "weakness,",
-          "start": 89.86,
+          "start": 89.84,
           "end": 90.26
         },
         {
           "w": "that",
-          "start": 90.26,
-          "end": 90.78
+          "start": 90.48,
+          "end": 90.76
         },
         {
           "w": "is",
-          "start": 90.78,
-          "end": 90.94
+          "start": 90.76,
+          "end": 90.96
         },
         {
           "w": "growth,",
-          "start": 90.94,
-          "end": 91.4
+          "start": 90.96,
+          "end": 91.42
         },
         {
           "w": "that",
-          "start": 91.74,
+          "start": 91.9,
           "end": 91.94
         },
         {
           "w": "is",
           "start": 91.94,
-          "end": 92.12
+          "end": 92.14
         },
         {
-          "w": "courage,",
-          "start": 92.12,
-          "end": 92.66
+          "w": "courage",
+          "start": 92.14,
+          "end": 92.64
         },
         {
           "w": "because",
-          "start": 92.68,
-          "end": 93.1
+          "start": 92.64,
+          "end": 93.06
         },
         {
           "w": "the",
-          "start": 93.1,
-          "end": 93.32
+          "start": 93.06,
+          "end": 93.34
         },
         {
           "w": "goal",
-          "start": 93.32,
+          "start": 93.34,
           "end": 93.54
         },
         {
@@ -2876,55 +2828,55 @@
           "w": "is",
           "start": 94.14,
           "end": 94.58
+        },
+        {
+          "w": "not",
+          "start": 94.58,
+          "end": 94.84
         }
       ]
     },
     {
-      "start": 94.58,
-      "end": 98.98,
-      "text": "not to become someone who never changes.",
+      "start": 94.84,
+      "end": 98.92,
+      "text": "to become someone who never changes.",
       "words": [
         {
-          "w": "not",
-          "start": 94.58,
-          "end": 94.86
-        },
-        {
           "w": "to",
-          "start": 94.86,
+          "start": 94.84,
           "end": 95.04
         },
         {
           "w": "become",
           "start": 95.04,
-          "end": 95.42
+          "end": 95.4
         },
         {
           "w": "someone",
-          "start": 95.42,
-          "end": 96.14
+          "start": 95.4,
+          "end": 96.12
         },
         {
           "w": "who",
-          "start": 96.14,
-          "end": 97.7
+          "start": 96.12,
+          "end": 97.68
         },
         {
           "w": "never",
-          "start": 97.7,
+          "start": 97.68,
           "end": 98.18
         },
         {
           "w": "changes.",
           "start": 98.18,
-          "end": 98.98
+          "end": 98.92
         }
       ]
     },
     {
       "start": 99.48,
-      "end": 106.92,
-      "text": "The goal is to become someone who changes well, a compass is not faithful, because",
+      "end": 103.58,
+      "text": "The goal is to become someone who changes well.",
       "words": [
         {
           "w": "The",
@@ -2934,125 +2886,125 @@
         {
           "w": "goal",
           "start": 99.56,
-          "end": 99.86
+          "end": 99.88
         },
         {
           "w": "is",
-          "start": 99.86,
+          "start": 99.88,
           "end": 100.12
         },
         {
           "w": "to",
           "start": 100.12,
-          "end": 100.42
+          "end": 100.4
         },
         {
           "w": "become",
-          "start": 100.42,
+          "start": 100.4,
           "end": 100.9
         },
         {
           "w": "someone",
           "start": 100.9,
-          "end": 101.88
+          "end": 101.86
         },
         {
           "w": "who",
-          "start": 101.88,
+          "start": 101.86,
           "end": 102.36
         },
         {
           "w": "changes",
           "start": 102.36,
-          "end": 102.9
+          "end": 102.88
         },
         {
-          "w": "well,",
-          "start": 102.9,
+          "w": "well.",
+          "start": 102.88,
           "end": 103.58
-        },
+        }
+      ]
+    },
+    {
+      "start": 104.06,
+      "end": 108.02,
+      "text": "A compass is not faithful because it never moves.",
+      "words": [
         {
-          "w": "a",
-          "start": 103.58,
+          "w": "A",
+          "start": 104.06,
           "end": 104.28
         },
         {
           "w": "compass",
           "start": 104.28,
-          "end": 104.62
+          "end": 104.6
         },
         {
           "w": "is",
-          "start": 104.62,
-          "end": 104.96
+          "start": 104.6,
+          "end": 104.94
         },
         {
           "w": "not",
-          "start": 104.96,
+          "start": 104.94,
           "end": 105.22
         },
         {
-          "w": "faithful,",
+          "w": "faithful",
           "start": 105.22,
-          "end": 106.04
+          "end": 106.02
         },
         {
           "w": "because",
-          "start": 106.62,
-          "end": 106.92
-        }
-      ]
-    },
-    {
-      "start": 106.92,
-      "end": 108.0,
-      "text": "it never moves.",
-      "words": [
+          "start": 106.02,
+          "end": 106.9
+        },
         {
           "w": "it",
-          "start": 106.92,
+          "start": 106.9,
           "end": 107.08
         },
         {
           "w": "never",
           "start": 107.08,
-          "end": 107.36
+          "end": 107.34
         },
         {
           "w": "moves.",
-          "start": 107.36,
-          "end": 108.0
+          "start": 107.34,
+          "end": 108.02
         }
       ]
     },
     {
-      "start": 108.46,
-      "end": 112.54,
-      "text": "A frozen needle is not loyal to north, it is only stuck.",
+      "start": 108.44,
+      "end": 111.1,
+      "text": "A frozen needle is not loyal to north.",
       "words": [
         {
           "w": "A",
-          "start": 108.46,
-          "end": 108.54
+          "start": 108.44,
+          "end": 108.56
         },
         {
           "w": "frozen",
-          "start": 108.54,
+          "start": 108.56,
           "end": 108.78
         },
         {
           "w": "needle",
           "start": 108.78,
-          "end": 109.04
+          "end": 109.06
         },
         {
           "w": "is",
-          "start": 109.04,
-          "end": 109.38
+          "start": 109.06,
+          "end": 109.4
         },
         {
           "w": "not",
-          "start": 109.38,
+          "start": 109.4,
           "end": 109.72
         },
         {
@@ -3066,65 +3018,72 @@
           "end": 110.52
         },
         {
-          "w": "north,",
+          "w": "north.",
           "start": 110.52,
           "end": 111.1
-        },
+        }
+      ]
+    },
+    {
+      "start": 111.1,
+      "end": 112.58,
+      "text": "It is only stuck.",
+      "words": [
         {
-          "w": "it",
-          "start": 111.34,
-          "end": 111.54
+          "w": "It",
+          "start": 111.1,
+          "end": 111.52
         },
         {
           "w": "is",
-          "start": 111.54,
+          "start": 111.52,
           "end": 111.7
         },
         {
           "w": "only",
           "start": 111.7,
-          "end": 112.08
+          "end": 112.06
         },
         {
           "w": "stuck.",
-          "start": 112.08,
-          "end": 112.54
+          "start": 112.06,
+          "end": 112.58
         }
       ]
     },
     {
-      "start": 113.28,
-      "end": 121.48,
+      "start": 113.34,
+      "end": 121.42,
       "text": "The needle keeps faith with north by moving, turn and the needle swings back every time.",
       "words": [
         {
           "w": "The",
-          "start": 113.28,
+          "start": 113.34,
           "end": 113.44
         },
         {
           "w": "needle",
           "start": 113.44,
-          "end": 113.64
+          "end": 113.62
         },
         {
           "w": "keeps",
-          "start": 113.64,
-          "end": 113.94
+          "start": 113.62,
+          "end": 113.96
         },
         {
           "w": "faith",
-          "start": 113.94,
-          "end": 114.72
+          "start": 113.96,
+          "end": 114.64
         },
         {
           "w": "with",
-          "start": 114.72,
-          "end": 115.04
+          "start": 114.64,
+          "end": 115.06
         },
         {
           "w": "north",
-          "start": 115.04,
+          "start": 115.06,
           "end": 115.7
         },
         {
@@ -3135,16 +3094,16 @@
         {
           "w": "moving,",
           "start": 116.24,
-          "end": 116.8
+          "end": 116.82
         },
         {
           "w": "turn",
           "start": 117.54,
-          "end": 117.92
+          "end": 117.9
         },
         {
           "w": "and",
-          "start": 117.92,
+          "start": 117.9,
           "end": 118.46
         },
         {
@@ -3165,38 +3124,38 @@
         {
           "w": "back",
           "start": 119.68,
-          "end": 120.36
+          "end": 120.34
         },
         {
           "w": "every",
-          "start": 120.36,
+          "start": 120.34,
           "end": 120.86
         },
         {
           "w": "time.",
           "start": 120.86,
-          "end": 121.48
+          "end": 121.42
         }
       ]
     },
     {
-      "start": 122.2,
+      "start": 122.24,
       "end": 135.82,
-      "text": "And maybe honesty is exactly that, I never change, but I keep turning toward",
+      "text": "And maybe honesty is exactly that, not, I never change but I keep turning toward",
       "words": [
         {
           "w": "And",
-          "start": 121.88,
-          "end": 122.32
+          "start": 122.24,
+          "end": 122.36
         },
         {
           "w": "maybe",
-          "start": 122.32,
-          "end": 122.58
+          "start": 122.36,
+          "end": 122.6
         },
         {
           "w": "honesty",
-          "start": 122.58,
+          "start": 122.6,
           "end": 123.16
         },
         {
@@ -3215,28 +3174,33 @@
           "end": 124.62
         },
         {
-          "w": "I",
+          "w": "not,",
           "start": 124.82,
-          "end": 125.12
+          "end": 124.92
+        },
+        {
+          "w": "I",
+          "start": 126.96,
+          "end": 128.96
         },
         {
           "w": "never",
-          "start": 125.12,
-          "end": 129.2
+          "start": 128.96,
+          "end": 129.22
         },
         {
-          "w": "change,",
-          "start": 129.2,
-          "end": 129.86
+          "w": "change",
+          "start": 129.22,
+          "end": 129.82
         },
         {
           "w": "but",
-          "start": 133.2,
-          "end": 133.9
+          "start": 129.82,
+          "end": 133.86
         },
         {
           "w": "I",
-          "start": 133.9,
+          "start": 133.86,
           "end": 134.62
         },
         {
@@ -3258,7 +3222,7 @@
     },
     {
       "start": 135.82,
-      "end": 136.86,
+      "end": 136.84,
       "text": "what is real.",
       "words": [
         {
@@ -3274,107 +3238,107 @@
         {
           "w": "real.",
           "start": 136.32,
-          "end": 136.86
+          "end": 136.84
         }
       ]
     },
     {
-      "start": 138.58,
-      "end": 148.2,
-      "text": "Someone who can look reality in the eye and say, teach me again and again.",
+      "start": 136.84,
+      "end": 150.86,
+      "text": "Someone who can look reality in the eye and say, teach me again and again because honesty",
       "words": [
         {
           "w": "Someone",
-          "start": 138.58,
-          "end": 138.82
+          "start": 136.84,
+          "end": 138.68
         },
         {
           "w": "who",
-          "start": 138.82,
-          "end": 139.12
+          "start": 138.68,
+          "end": 139.1
         },
         {
           "w": "can",
-          "start": 139.12,
+          "start": 139.1,
           "end": 139.36
         },
         {
           "w": "look",
           "start": 139.36,
-          "end": 139.62
+          "end": 139.6
         },
         {
           "w": "reality",
-          "start": 139.62,
-          "end": 140.24
+          "start": 139.6,
+          "end": 140.22
         },
         {
           "w": "in",
-          "start": 140.24,
+          "start": 140.22,
           "end": 140.62
         },
         {
           "w": "the",
           "start": 140.62,
-          "end": 140.88
+          "end": 140.92
         },
         {
           "w": "eye",
-          "start": 140.88,
+          "start": 140.92,
           "end": 141.44
         },
         {
           "w": "and",
           "start": 141.44,
-          "end": 142.56
+          "end": 142.58
         },
         {
           "w": "say,",
-          "start": 142.56,
-          "end": 143.0
+          "start": 142.58,
+          "end": 142.94
         },
         {
           "w": "teach",
-          "start": 143.5,
-          "end": 143.66
+          "start": 143.48,
+          "end": 143.64
         },
         {
           "w": "me",
-          "start": 143.66,
-          "end": 144.4
+          "start": 143.64,
+          "end": 144.52
         },
         {
           "w": "again",
-          "start": 144.4,
-          "end": 145.54
+          "start": 144.52,
+          "end": 145.48
         },
         {
           "w": "and",
-          "start": 145.54,
-          "end": 147.32
+          "start": 145.48,
+          "end": 147.3
         },
         {
-          "w": "again.",
-          "start": 147.32,
-          "end": 148.2
-        }
-      ]
-    },
-    {
-      "start": 148.2,
-      "end": 162.4,
-      "text": "Because honesty is not who you are, it is how you become, how you become whole.",
-      "words": [
+          "w": "again",
+          "start": 147.3,
+          "end": 148.22
+        },
         {
-          "w": "Because",
-          "start": 148.2,
+          "w": "because",
+          "start": 148.22,
           "end": 150.18
         },
         {
           "w": "honesty",
           "start": 150.18,
           "end": 150.86
-        },
+        }
+      ]
+    },
+    {
+      "start": 150.86,
+      "end": 153.24,
+      "text": "is not who you are.",
+      "words": [
         {
           "w": "is",
           "start": 150.86,
@@ -3383,51 +3347,58 @@
         {
           "w": "not",
           "start": 151.4,
-          "end": 151.72
+          "end": 151.74
         },
         {
           "w": "who",
-          "start": 151.72,
+          "start": 151.74,
           "end": 152.26
         },
         {
           "w": "you",
           "start": 152.26,
-          "end": 152.56
+          "end": 152.54
         },
         {
-          "w": "are,",
-          "start": 152.56,
-          "end": 153.04
-        },
+          "w": "are.",
+          "start": 152.54,
+          "end": 153.24
+        }
+      ]
+    },
+    {
+      "start": 156.34,
+      "end": 164.44,
+      "text": "It is how you become how you come home.",
+      "words": [
         {
-          "w": "it",
-          "start": 153.04,
+          "w": "It",
+          "start": 156.34,
           "end": 157.7
         },
         {
           "w": "is",
           "start": 157.7,
-          "end": 158.06
+          "end": 158.08
         },
         {
           "w": "how",
-          "start": 158.06,
+          "start": 158.08,
           "end": 158.92
         },
         {
           "w": "you",
           "start": 158.92,
-          "end": 159.22
+          "end": 159.24
         },
         {
-          "w": "become,",
-          "start": 159.22,
-          "end": 159.8
+          "w": "become",
+          "start": 159.24,
+          "end": 159.76
         },
         {
           "w": "how",
-          "start": 161.04,
+          "start": 159.76,
           "end": 161.22
         },
         {
@@ -3436,14 +3407,14 @@
           "end": 161.52
         },
         {
-          "w": "become",
+          "w": "come",
           "start": 161.52,
-          "end": 161.86
+          "end": 161.84
         },
         {
-          "w": "whole.",
-          "start": 161.86,
-          "end": 162.4
+          "w": "home.",
+          "start": 161.84,
+          "end": 164.44
         }
       ]
     }
