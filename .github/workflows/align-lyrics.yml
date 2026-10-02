@@ -1,0 +1,65 @@
+name: align lyrics
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/align-lyrics.yml'
+      - 'analysis/align_whisper.py'
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install aligner
+        run: pip install faster-whisper==1.1.1 requests
+
+      - name: Align known lyrics to recording
+        run: |
+          python analysis/align_whisper.py \
+            --audio "audio/Honesty Is a Compass.mp3" \
+            --lyrics lyrics/lyrics.txt \
+            --out data/lyrics.json \
+            --model small.en
+
+      - name: Show first timings
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/lyrics.json'))
+          print(x['alignment'])
+          for line in x['lines'][:6]:
+              print(line['start'], line['end'], line['text'])
+          PY
+
+      - name: Commit aligned timing
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/lyrics.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Replace provisional lyric timing with Whisper alignment"
+            for attempt in 1 2 3; do
+              if git push; then
+                break
+              fi
+              echo "Push attempt $attempt failed; refreshing remote and retrying..."
+              sleep 3
+              git fetch origin main
+              git rebase origin/main || git rebase --abort
+            done
+            git push || true
+          fi
