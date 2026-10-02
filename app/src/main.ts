@@ -1,32 +1,39 @@
 // Honesty Is a Compass: a deterministic, code-rendered music video. Every frame is a function
-// of song time: painted backdrop (WebGL) → compass layer (Canvas2D) → kinetic lyrics (DOM)
-// → title card and sleeve → print grain.
+// of song time: landscape (WebGL) → compass and story layers (Canvas2D) → kinetic lyrics (DOM)
+// → title card, light bursts and film grain. The stage punches on every frenchcore kick.
 import * as THREE from 'three';
-import '@fontsource-variable/fraunces/full.css';
-import '@fontsource-variable/fraunces/full-italic.css';
-import '@fontsource/jost/500.css';
-import '@fontsource/jost/700.css';
-import { Backdrop, Grain, PALETTE } from './look';
+import '@fontsource/cormorant-garamond/600.css';
+import '@fontsource/cormorant-garamond/700.css';
+import '@fontsource/cormorant-garamond/600-italic.css';
+import '@fontsource/cormorant-garamond/700-italic.css';
+import '@fontsource/caveat/600.css';
+import { Grain, Landscape, PALETTE } from './look';
+import { DURATION as SONG_DURATION, beatPos, dropAmount, flight, kickPulse } from './music';
 import { CompassLayer } from './compass';
+import { StoryLayer } from './story';
 import { KineticLyrics, type LineStyle } from './kinetic';
-import { type LineTiming, findLine, lines, nearestBeatPulse, smoothstep } from './lyrics';
+import { type LineTiming, findLine, lines, smoothstep } from './lyrics';
 
 const LOGICAL_W = 1920;
 const LOGICAL_H = 1080;
-const DURATION = 184.92;
+const DURATION = SONG_DURATION;
 
-const app = document.querySelector('#app')!;
+const root = document.querySelector('#app')!;
+const app = document.createElement('div');
+app.id = 'stage';
+root.appendChild(app);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setClearColor(PALETTE.deep, 1);
+renderer.setClearColor(PALETTE.charcoal, 1);
 app.appendChild(renderer.domElement);
 const scene = new THREE.Scene();
 const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, -1, 1);
-const backdrop = new Backdrop();
-scene.add(backdrop.mesh);
+const landscape = new Landscape();
+scene.add(landscape.mesh);
 
 const compass = new CompassLayer(app);
+const story = new StoryLayer(app);
 
 // How each line moves. Lines not listed are set still, with no emphasis.
 const style = new Map<LineTiming, LineStyle>();
@@ -76,40 +83,83 @@ set('how you become', { mode: 'gather', key: 'become' });
 set('How you come home', { mode: 'gather', key: 'home' });
 const lyrics = new KineticLyrics(app, style);
 
-const centerTitle = document.createElement('div');
-centerTitle.id = 'center-title';
-centerTitle.className = 'cover';
-centerTitle.innerHTML =
-  '<div class="cover-title"><span class="cover-big">Honesty</span> <span class="cover-small">is a</span> <span class="cover-big cover-alt">Compass</span></div>' +
-  '<div class="cover-sub">Produced by Emergence</div>';
-app.appendChild(centerTitle);
+const titleCard = document.createElement('div');
+titleCard.id = 'title-card';
+titleCard.innerHTML =
+  '<div class="title">Honesty is a Compass</div>' +
+  '<div class="themes">Truth / Turning / Growth / Courage / Coming home</div>' +
+  '<div class="by">produced by Emergence</div>';
+root.appendChild(titleCard);
 
-// The paper edge of the record sleeve, shown around the title card at the start and the end.
-const sleeve = document.createElement('div');
-sleeve.id = 'sleeve';
-app.appendChild(sleeve);
+const flashEl = document.createElement('div');
+flashEl.id = 'flash';
+root.appendChild(flashEl);
 
-const grain = new Grain(app);
+const grain = new Grain(root);
 
 const firstLine = lines[0];
 const lastLine = lines[lines.length - 1];
-const coverReturn = lastLine.end + 3.2;
+// the outro is instrumental: fly over the golden landscape, then close on the title
+const titleReturn = Math.max(lastLine.end + 3, DURATION - 8);
+
+/** Keyframed values along the song: [time, value], eased between keys. */
+function keys(t: number, k: Array<[number, number]>): number {
+  if (t <= k[0][0]) return k[0][1];
+  for (let i = 0; i < k.length - 1; i++) {
+    const [t0, v0] = k[i], [t1, v1] = k[i + 1];
+    if (t < t1) { const u = (t - t0) / (t1 - t0); return v0 + (v1 - v0) * u * u * (3 - 2 * u); }
+  }
+  return k[k.length - 1][1];
+}
+
+const dropStarts = [105, 155];
+
+/**
+ * The journey: from a rainy night in the city, through the storm of being wrong, into blue hour,
+ * dawn on "by moving", sunrise in the drops and golden hour at "coming home".
+ */
+function journey(t: number) {
+  const drop = dropAmount(t);
+  const kick = kickPulse(t);
+  const burst = Math.max(0, ...dropStarts.map((s) => (t >= s ? Math.exp(-(t - s) * 2.2) : 0)));
+  return {
+    t,
+    phase: keys(t, [[0, 0], [45, 0.05], [66, 0.2], [80, 0.3], [104, 0.42], [116, 0.62], [135, 0.78], [160, 0.9], [184, 1]]),
+    rain: keys(t, [[0, 0.9], [40, 0.9], [66, 1], [80, 0.4], [96, 0]]),
+    city: keys(t, [[0, 1], [22, 1], [40, 0]]),
+    flight: flight(t),
+    kick,
+    drop,
+    // lightning on the hardest kicks of the storm; a warm burst as each drop lands
+    flash: Math.max(t > 52 && t < 80 && kick > 0.85 ? 0.6 * kick : 0, burst),
+    burst,
+  };
+}
 
 function renderAt(t: number): void {
-  backdrop.update(t, nearestBeatPulse(t, 0.16));
+  const j = journey(t);
+  landscape.update({ t, phase: j.phase, rain: j.rain, city: j.city, flight: j.flight, kick: j.kick, drop: j.drop, flash: j.flash });
   grain.update(t);
   compass.render(t);
+  story.render(t, j.phase);
+
+  // the frenchcore heartbeat: the whole stage punches on each kick in the drops, and the
+  // hardest kicks give it a short, small shake
+  const punch = j.kick * j.drop;
+  const bi = Math.floor(beatPos(t));
+  const shake = punch > 0.7 ? (punch - 0.7) * 10 : 0;
+  const sx = Math.sin(bi * 12.9898) * shake, sy = Math.cos(bi * 78.233) * shake;
+  app.setAttribute('style', `transform: translate(${sx.toFixed(2)}px, ${sy.toFixed(2)}px) scale(${(1 + 0.022 * punch).toFixed(4)})`);
+  flashEl.style.opacity = String(Math.min(1, j.burst * 0.9 + 0.12 * punch * smoothstep(0.5, 0.8, j.phase)));
 
   // the title card opens the film and closes it
-  const opening = smoothstep(0.6, 2.2, t) * (1 - smoothstep(firstLine.start - 2.2, firstLine.start - 0.4, t));
-  const closing = smoothstep(coverReturn, coverReturn + 1.6, t);
-  const cover = Math.max(opening, closing);
-  const breathe = 1 + Math.sin(t * 1.35) * 0.010 + nearestBeatPulse(t, 0.18) * 0.018;
-  centerTitle.style.opacity = String(cover);
-  centerTitle.style.transform = `scale(${breathe}) translateY(${Math.sin(t * 0.55) * 4}px)`;
-  sleeve.style.opacity = String(Math.max(1 - smoothstep(firstLine.start - 2.2, firstLine.start - 0.4, t), closing));
+  const opening = 1 - smoothstep(firstLine.start - 1.4, firstLine.start - 0.2, t);
+  const closing = smoothstep(titleReturn, titleReturn + 1.4, t);
+  const title = Math.max(opening * smoothstep(0, 0.6, t), closing);
+  titleCard.style.opacity = String(title);
+  titleCard.style.transform = `translate(-50%, -50%) rotate(-0.6deg) scale(${(1 + 0.01 * Math.sin(t * 1.2)).toFixed(4)})`;
 
-  lyrics.render(t, 1 - cover);
+  lyrics.render(t, 1 - title);
   renderer.render(scene, camera);
 }
 
@@ -118,6 +168,7 @@ function resize(): void {
   const w = Math.floor(LOGICAL_W * scale), h = Math.floor(LOGICAL_H * scale);
   renderer.setSize(w, h, false);
   compass.setDisplaySize(w, h);
+  story.setDisplaySize(w, h);
 }
 window.addEventListener('resize', resize);
 resize();
@@ -180,12 +231,12 @@ function frame(): void {
   requestAnimationFrame(frame);
 }
 
-// Renders wait for this flag, so it is only raised once the fonts (also used on the compass dial) are usable.
+// Renders wait for this flag, so it is only raised once the fonts (also used on the dial and the notes) are usable.
 Promise.all([
-  document.fonts.load('900 100px "Fraunces Variable"'),
-  document.fonts.load('italic 900 100px "Fraunces Variable"'),
-  document.fonts.load('700 40px "Jost"'),
-  document.fonts.load('500 40px "Jost"'),
+  document.fonts.load('700 100px "Cormorant Garamond"'),
+  document.fonts.load('600 100px "Cormorant Garamond"'),
+  document.fonts.load('italic 600 100px "Cormorant Garamond"'),
+  document.fonts.load('600 40px "Caveat"'),
 ]).then(() => document.fonts.ready).then(() => {
   compass.prepare();
   ready = true;

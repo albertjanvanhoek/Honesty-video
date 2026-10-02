@@ -2,6 +2,7 @@
 // matches its meaning; quoted speech is set in italic. A pure function of song time.
 import { CSS } from './look';
 import { type LineTiming, type WordTiming, lines, nearestBeatPulse, smoothstep, wordProgress } from './lyrics';
+import { dropAmount } from './music';
 
 /**
  * - plain: still, the key word grows as it is sung
@@ -47,8 +48,8 @@ function wordStyle(line: LineTiming, word: WordTiming, i: number, t: number, sty
   const isKey = !!style.key && word.w.toLowerCase() === style.key;
 
   let x = 0, y = 0, rot = 0, scale = 1;
-  let opacity = before ? 0.5 : 1;
-  let color = active ? CSS.brass : after ? CSS.cream : CSS.paper;
+  let opacity = before ? 0.62 : 1;
+  let color = active ? '#e0a45e' : CSS.cream;
 
   if (isKey) scale = 1.06 + 0.3 * p;
 
@@ -82,6 +83,15 @@ function wordStyle(line: LineTiming, word: WordTiming, i: number, t: number, sty
     case 'plain':
       break;
   }
+
+  // frenchcore: in the drops each word slams in on its own hit
+  const drop = dropAmount(t);
+  if (drop > 0.05 && t >= word.start) {
+    const hit = Math.exp(-(t - word.start) / 0.09);
+    scale *= 1 + 0.32 * hit * drop;
+    y -= 10 * hit * drop;
+  }
+  if (drop > 0.05 && before) opacity = 0.62 * (1 - 0.4 * drop);
 
   if (active) opacity = 1;
   if (after) opacity = 0.97;
@@ -125,8 +135,8 @@ export class KineticLyrics {
     const style = this.styles.get(line) ?? { mode: 'plain' };
     const short = line.text.length <= 12;
     this.el.className = `kinetic mode-${style.mode}${isQuote(line) ? ' quote' : ''}`;
-    this.el.style.setProperty('--kinetic-font-vw', short ? '8.6vw' : '6.6vw');
-    this.el.style.setProperty('--kinetic-gap-em', '0.34em');
+    this.el.style.setProperty('--kinetic-font-vw', short ? '9.4vw' : '7.2vw');
+    this.el.style.setProperty('--kinetic-gap-em', '0.26em');
     this.el.style.opacity = String(
       visible * smoothstep(line.start - 0.15, line.start + 0.05, t) * (1 - smoothstep(line.end + 0.5, line.end + 0.9, t))
     );

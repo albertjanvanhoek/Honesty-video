@@ -37,12 +37,6 @@ function buildCues() {
   const trophy = L('trophy you once won');
   const forever = L('keep forever');
   const notHow = L('not how honesty works');
-  const sportLine = L('You play sport');
-  const practice = L('You practice');
-  const lose = L('You lose');
-  const learn = L('You learn');
-  const better = L('You get better');
-  const noDifferent = L('honesty is no different');
   const playHonesty = L('You play honesty');
   const everys = [L('Every day'), L('Every conversation'), L('Every mistake'), L('Every moment')];
   const wrong = L('You were wrong');
@@ -69,7 +63,7 @@ function buildCues() {
   const become = L('how you become');
   const home = L('How you come home');
   return {
-    people, eyes, height, trophy, forever, notHow, sportLine, practice, lose, learn, better, noDifferent,
+    people, eyes, height, trophy, forever, notHow,
     playHonesty, everys, wrong, defend, change, alwaysRight, thought, learned, andNow, closer, growth, courage,
     neverChanges, changesWell, frozen, stuck, byMoving, turn, everyTime, iNever, turning, teach, agains, become, home,
   };
@@ -143,8 +137,8 @@ function makeDial(): HTMLCanvasElement {
   g.beginPath(); g.arc(c, c, RC + 8, 0, Math.PI * 2); g.stroke();
 
   // aged paper card
-  const card = g.createRadialGradient(c, c, RC * 0.1, c, c, RC);
-  card.addColorStop(0, CSS.cream); card.addColorStop(0.8, CSS.paper); card.addColorStop(1, '#cdb88d');
+  const card = g.createRadialGradient(c - RC * 0.2, c - RC * 0.25, RC * 0.1, c, c, RC);
+  card.addColorStop(0, '#2a2f31'); card.addColorStop(0.7, '#15191b'); card.addColorStop(1, '#0a0c0d');
   g.fillStyle = card;
   g.beginPath(); g.arc(c, c, RC, 0, Math.PI * 2); g.fill();
   const rand = mulberry32(5);
@@ -152,13 +146,13 @@ function makeDial(): HTMLCanvasElement {
   g.beginPath(); g.arc(c, c, RC, 0, Math.PI * 2); g.clip();
   for (let i = 0; i < 2600; i++) {
     const a = rand() * Math.PI * 2, r = Math.sqrt(rand()) * RC;
-    g.fillStyle = rand() < 0.5 ? 'rgba(120, 90, 50, 0.06)' : 'rgba(255, 250, 235, 0.08)';
+    g.fillStyle = rand() < 0.5 ? 'rgba(0, 0, 0, 0.12)' : 'rgba(255, 250, 235, 0.03)';
     g.fillRect(c + Math.cos(a) * r, c + Math.sin(a) * r, 1 + rand() * 2, 1 + rand() * 2);
   }
   g.restore();
 
   // rings and degree ticks (0 deg = north = up)
-  g.strokeStyle = CSS.ink; g.lineWidth = 2;
+  g.strokeStyle = CSS.paper; g.lineWidth = 2;
   for (const rr of [RC - 18, RC - 58, RC * 0.42]) { g.beginPath(); g.arc(c, c, rr, 0, Math.PI * 2); g.stroke(); }
   for (let d = 0; d < 360; d += 2) {
     const a = (d - 90) * Math.PI / 180;
@@ -169,8 +163,8 @@ function makeDial(): HTMLCanvasElement {
     g.lineTo(c + Math.cos(a) * (RC - (long ? 46 : 32)), c + Math.sin(a) * (RC - (long ? 46 : 32)));
     g.stroke();
   }
-  g.fillStyle = CSS.ink;
-  g.font = '600 22px Jost, sans-serif';
+  g.fillStyle = CSS.paper;
+  g.font = '600 26px "Cormorant Garamond", serif';
   g.textAlign = 'center'; g.textBaseline = 'middle';
   for (let d = 30; d < 360; d += 30) {
     if (d % 90 === 0) continue;
@@ -185,7 +179,7 @@ function makeDial(): HTMLCanvasElement {
     const len = i % 2 === 0 ? RC * 0.7 : RC * 0.42;
     const wdt = i % 2 === 0 ? 34 : 22;
     for (const side of [-1, 1]) {
-      g.fillStyle = side < 0 ? (i % 2 === 0 ? CSS.ink : CSS.honey) : (i % 2 === 0 ? '#6b5a44' : '#e3cf9f');
+      g.fillStyle = side < 0 ? (i % 2 === 0 ? CSS.paper : CSS.brass) : (i % 2 === 0 ? '#b8ad9b' : '#8a6a36');
       g.beginPath();
       g.moveTo(c, c);
       g.lineTo(c + Math.cos(a + side * Math.PI / 2) * wdt, c + Math.sin(a + side * Math.PI / 2) * wdt);
@@ -194,12 +188,12 @@ function makeDial(): HTMLCanvasElement {
     }
   }
   // cardinal letters
-  g.font = '900 64px "Fraunces Variable", Georgia, serif';
+  g.font = '700 74px "Cormorant Garamond", Georgia, serif';
   const letters: Array<[string, number]> = [['N', 0], ['E', 90], ['S', 180], ['W', 270]];
   for (const [ch, d] of letters) {
     const a = (d - 90) * Math.PI / 180;
     g.save(); g.translate(c + Math.cos(a) * (RC - 108), c + Math.sin(a) * (RC - 108)); g.rotate(a + Math.PI / 2);
-    g.fillStyle = ch === 'N' ? CSS.needle : CSS.ink;
+    g.fillStyle = ch === 'N' ? CSS.amber : CSS.paper;
     g.fillText(ch, 0, 4); g.restore();
   }
   return cv;
@@ -245,13 +239,13 @@ function drawNeedle(g: CanvasRenderingContext2D, c: Pt, angle: number, glow: num
   g.shadowColor = 'rgba(10, 8, 4, 0.45)'; g.shadowBlur = 14; g.shadowOffsetX = 8; g.shadowOffsetY = 12;
   // north half
   g.fillStyle = CSS.needle;
-  g.beginPath(); g.moveTo(0, -len); g.lineTo(w, 0); g.lineTo(-w, 0); g.closePath(); g.fill();
+  g.beginPath(); g.moveTo(0, -len); g.lineTo(w * 0.8, 0); g.lineTo(-w * 0.8, 0); g.closePath(); g.fill();
   g.shadowColor = 'transparent';
   g.fillStyle = 'rgba(0, 0, 0, 0.18)';
   g.beginPath(); g.moveTo(0, -len); g.lineTo(w, 0); g.lineTo(0, 0); g.closePath(); g.fill();
   // south half
-  g.fillStyle = '#d9d2c4';
-  g.beginPath(); g.moveTo(0, len * 0.8); g.lineTo(w, 0); g.lineTo(-w, 0); g.closePath(); g.fill();
+  g.fillStyle = '#e9e1d2';
+  g.beginPath(); g.moveTo(0, len * 0.8); g.lineTo(w * 0.8, 0); g.lineTo(-w * 0.8, 0); g.closePath(); g.fill();
   g.fillStyle = 'rgba(0, 0, 0, 0.14)';
   g.beginPath(); g.moveTo(0, len * 0.8); g.lineTo(w, 0); g.lineTo(0, 0); g.closePath(); g.fill();
   if (glow > 0.01) {
@@ -268,28 +262,9 @@ function drawNeedle(g: CanvasRenderingContext2D, c: Pt, angle: number, glow: num
   g.restore();
 }
 
-/** A roughly drawn chalk stroke. */
-function chalk(g: CanvasRenderingContext2D, a: Pt, b: Pt, k: number, seed: number): void {
-  if (k <= 0) return;
-  const rand = mulberry32(seed);
-  const e: Pt = [lerp(a[0], b[0], k), lerp(a[1], b[1], k)];
-  g.save();
-  g.lineCap = 'round';
-  for (let pass = 0; pass < 3; pass++) {
-    g.strokeStyle = `rgba(243, 230, 200, ${0.28 + rand() * 0.25})`;
-    g.lineWidth = 5 + rand() * 4;
-    g.beginPath();
-    g.moveTo(a[0] + (rand() - 0.5) * 3, a[1] + (rand() - 0.5) * 3);
-    const m: Pt = [(a[0] + e[0]) / 2 + (rand() - 0.5) * 6, (a[1] + e[1]) / 2 + (rand() - 0.5) * 6];
-    g.quadraticCurveTo(m[0], m[1], e[0] + (rand() - 0.5) * 3, e[1] + (rand() - 0.5) * 3);
-    g.stroke();
-  }
-  g.restore();
-}
-
 function label(g: CanvasRenderingContext2D, text: string, x: number, y: number, color: string = CSS.ink): void {
   g.save();
-  g.font = '700 22px Jost, sans-serif';
+  g.font = '700 26px "Cormorant Garamond", serif';
   g.textAlign = 'center'; g.textBaseline = 'middle';
   g.fillStyle = color;
   g.fillText(text.toUpperCase().split('').join(String.fromCharCode(8202)), x, y);
@@ -300,7 +275,7 @@ function drawShelf(g: CanvasRenderingContext2D, y: number): void {
   g.save();
   g.shadowColor = 'rgba(5, 8, 12, 0.5)'; g.shadowBlur = 24; g.shadowOffsetY = 16;
   const wood = g.createLinearGradient(0, y, 0, y + 36);
-  wood.addColorStop(0, '#8a6a45'); wood.addColorStop(0.4, CSS.ground); wood.addColorStop(1, '#3e2c1a');
+  wood.addColorStop(0, '#8a6a45'); wood.addColorStop(0.4, '#6b5236'); wood.addColorStop(1, '#3e2c1a');
   g.fillStyle = wood;
   g.fillRect(470, y, 980, 36);
   g.restore();
@@ -350,7 +325,7 @@ function drawTrophy(g: CanvasRenderingContext2D, x: number, y: number, dome: num
   g.shadowColor = 'transparent';
   g.fillStyle = brass; g.fillRect(x - 54, y - 46, 108, 32);
   g.fillStyle = CSS.ink;
-  g.font = '700 18px Jost, sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
+  g.font = '700 22px "Cormorant Garamond", serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
   g.fillText('H O N E S T', x, y - 30);
   // stem and cup
   g.fillStyle = brass;
@@ -488,7 +463,6 @@ export class CompassLayer {
     g.globalAlpha = 1;
     g.clearRect(0, 0, W, H);
     this.renderPossessions(t);
-    this.renderSport(t);
     if (t >= this.cue.playHonesty.start - 0.5) this.renderCompass(t);
   }
 
@@ -509,28 +483,6 @@ export class CompassLayer {
     if (ru > 0) { g.save(); g.translate(0, (1 - ru) * -60); g.globalAlpha *= ru; drawRuler(g, 1280, shelfY); g.restore(); }
     if (tr > 0) { g.save(); g.translate(0, (1 - tr) * -60); g.globalAlpha *= tr; drawTrophy(g, 960, shelfY, smoothstep(c.forever.start, c.forever.end + 0.4, t)); g.restore(); }
     drawShelf(g, shelfY);
-    g.restore();
-  }
-
-  /** "You play sport. You practice. You lose. You learn. You get better." as chalk marks. */
-  private renderSport(t: number): void {
-    const c = this.cue, g = this.g;
-    if (t < c.sportLine.start - 0.3 || t > c.playHonesty.start + 0.5) return;
-    const fade = 1 - smoothstep(c.noDifferent.start, c.playHonesty.start, t);
-    g.save();
-    g.globalAlpha = fade;
-    // drawn at 1.5x around the lower centre of the frame
-    g.translate(960, 900); g.scale(1.5, 1.5); g.translate(-960, -900);
-    const y0 = 930, x0 = 700;
-    const k = (line: LineTiming) => smoothstep(line.words[line.words.length - 1].start - 0.1, line.end + 0.1, t);
-    chalk(g, [x0, y0 - 120], [x0, y0], k(c.practice), 1);                 // practice: a mark
-    chalk(g, [x0 + 70, y0 - 120], [x0 + 70, y0], k(c.lose), 2);           // lose: a mark…
-    chalk(g, [x0 + 30, y0 - 100], [x0 + 110, y0 - 20], k(c.lose), 3);     // …crossed out
-    chalk(g, [x0 + 140, y0 - 120], [x0 + 140, y0], k(c.learn), 4);        // learn: a mark
-    const b = k(c.better);                                               // get better: an upward line
-    chalk(g, [x0 + 220, y0 - 10], [x0 + 520, y0 - 150], b, 5);
-    chalk(g, [x0 + 520, y0 - 150], [x0 + 480, y0 - 160], smoothstep(0.8, 1, b), 6);
-    chalk(g, [x0 + 520, y0 - 150], [x0 + 500, y0 - 115], smoothstep(0.8, 1, b), 7);
     g.restore();
   }
 
