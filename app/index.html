@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Honesty Is a Compass</title>
+  <style>
+    /* Palette and type follow docs/STYLE_BIBLE.md. */
+    :root {
+      --deep: #141e2a;
+      --cream: #f3e6c8;
+      --paper: #eadbb8;
+      --gold: #d4a84f;
+      --ink: #1a120b;
+      --display: "Fraunces Variable", Georgia, serif;
+      --label: "Jost", "Futura", sans-serif;
+      font-family: var(--display);
+      color: var(--cream);
+      background: var(--deep);
+    }
+
+    html, body, #app {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--deep);
+    }
+
+    #app {
+      display: grid;
+      place-items: center;
+      position: relative;
+      isolation: isolate;
+    }
+
+    canvas {
+      display: block;
+      max-width: 100vw;
+      max-height: 100vh;
+    }
+
+    /* Display type: a soft, slightly wonky vintage serif with a dark ink edge and a printed drop shadow. */
+    #lyrics, #kinetic-lyrics, #center-title {
+      font-family: var(--display);
+      font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+      -webkit-text-stroke: 0.05em var(--ink);
+      paint-order: stroke fill;
+      text-shadow: 0.035em 0.045em 0 var(--ink), 0 0.10em 0.35em rgba(20, 28, 14, 0.45);
+    }
+
+    #lyrics {
+      position: absolute;
+      left: 7vw;
+      right: 7vw;
+      bottom: 9vh;
+      z-index: 5;
+      max-width: 86vw;
+      font-size: clamp(42px, 5.6vw, 104px);
+      font-weight: 850;
+      line-height: 1.02;
+      text-wrap: balance;
+      pointer-events: none;
+    }
+
+    .word { color: var(--paper); opacity: 0.45; }
+    .word.done { color: var(--cream); opacity: 1; }
+    .word.active { color: var(--gold); opacity: 1; }
+
+    #annotation {
+      position: absolute;
+      top: 10vh;
+      right: 8vw;
+      font-family: var(--label);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: clamp(10px, 1vw, 16px);
+      color: var(--paper);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #plate-label {
+      position: absolute;
+      top: 8.5vh;
+      left: 7vw;
+      z-index: 5;
+      font-family: var(--label);
+      font-size: clamp(15px, 1.25vw, 23px);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--paper);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #kinetic-lyrics {
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: clamp(44px, var(--kinetic-font-vw, 6.8vw), 132px);
+      font-weight: 850;
+      letter-spacing: -0.01em;
+      line-height: 0.98;
+      text-align: center;
+      transform-style: preserve-3d;
+      perspective: 900px;
+      pointer-events: none;
+    }
+
+    .kinetic-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.14em;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    .kinetic-row {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: baseline;
+      gap: var(--kinetic-gap-em, 0.22em);
+      white-space: nowrap;
+    }
+
+    .kinetic-word {
+      display: inline-block;
+      transform-origin: 50% 55%;
+      will-change: transform, opacity, color, letter-spacing;
+    }
+
+    #center-title {
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      font-size: clamp(72px, 13vw, 250px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      opacity: 0;
+      pointer-events: none;
+      text-align: center;
+    }
+
+    /* The record-sleeve title card. */
+    #center-title.cover { gap: 0.55vw; }
+    .cover-title { font-size: 8.4vw; line-height: 1; white-space: nowrap; }
+    .cover-big { color: var(--gold); display: inline-block; }
+    .cover-big::first-letter { font-size: 1.18em; }
+    .cover-alt { color: var(--cream); }
+    .cover-small { font-size: 0.6em; color: var(--paper); vertical-align: 0.28em; margin: 0 0.12em; letter-spacing: 0.01em; word-spacing: 0.08em; }
+    .cover-sub {
+      font-family: var(--label);
+      font-weight: 700;
+      font-size: 2.1vw;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cream);
+      -webkit-text-stroke: 0;
+      text-shadow: 0.06em 0.08em 0 var(--ink);
+    }
+
+    /* Worn cream paper edge of the sleeve. */
+    #sleeve {
+      position: absolute;
+      inset: 0;
+      z-index: 7;
+      pointer-events: none;
+      opacity: 0;
+      border: 1.6vw solid var(--paper);
+      box-shadow: inset 0 0 2.4vw rgba(58, 38, 20, 0.55), inset 0 0 0.25vw rgba(58, 38, 20, 0.8);
+    }
+
+    /* The yarn-and-buttons layer, centred over the WebGL canvas. */
+    #thread {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Quoted speech is set in italic, like a voice. */
+    #kinetic-lyrics.quote .kinetic-word { font-style: italic; }
+
+    /* The compass layer, centred over the WebGL canvas. */
+    #compass {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Print grain over everything, type included. */
+    #grain {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      pointer-events: none;
+      opacity: 0.16;
+      mix-blend-mode: overlay;
+      background-repeat: repeat;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
