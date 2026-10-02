@@ -15,9 +15,10 @@ on:
         description: Separate the vocals from the music first (recommended over heavy kicks)
         default: true
         type: boolean
+  # Runs only on a manual dispatch or when the aligner itself changes, so a merge that
+  # merely touches this file cannot overwrite reviewed timings.
   push:
     paths:
-      - '.github/workflows/align-lyrics.yml'
       - 'analysis/align_whisper.py'
 
 permissions:
