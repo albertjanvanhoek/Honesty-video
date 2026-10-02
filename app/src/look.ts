@@ -42,6 +42,11 @@ uniform float flight;  // distance travelled
 uniform float kick;    // 0..1 kick pulse
 uniform float drop;    // 0..1 how much drop the music is in
 uniform float flash;   // 0..1 lightning / light burst
+uniform float roll;    // camera roll, radians
+uniform float zoom;    // camera zoom (1 = normal)
+uniform float lift;    // camera height: moves the horizon (+ = look down, horizon higher)
+uniform float sea;     // 0..1 stormy sea instead of a calm lake
+uniform float ridges;  // 0..1 how much of the mountain layers to show
 
 float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123); }
 float hash1(float x) { return fract(sin(x * 91.17) * 43758.5453); }
@@ -103,15 +108,23 @@ vec3 sky(vec2 uv, vec2 sun, float sunUp) {
 }
 
 void main() {
-  vec2 uv = vUv;
+  // the camera: roll and zoom around the frame centre, then raise or lower the horizon
+  vec2 c = vUv - 0.5;
+  c.x *= 1.7778;
+  float cr = cos(roll), sr = sin(roll);
+  c = mat2(cr, sr, -sr, cr) * c / zoom;
+  c.x /= 1.7778;
+  vec2 uv = c + 0.5;
+  uv.y -= lift;
   float sunUp = smoothstep(0.45, 0.85, phase);
   vec2 sun = vec2(0.64, mix(0.22, 0.46, sunUp));
 
   vec3 col = sky(uv, sun, sunUp);
   vec3 hor = skyHorizon(phase);
 
-  // the lake reflects the sky, broken up by ripples
-  float shore = 0.2;
+  // the lake reflects the sky, broken up by ripples; in a storm it heaves into waves
+  float waves = sea * (0.045 * sin(uv.x * 13.0 + t * 2.3) + 0.028 * sin(uv.x * 29.0 - t * 3.4) + 0.03 * (fbm(vec2(uv.x * 7.0 - t * 0.7, t * 0.4)) - 0.5));
+  float shore = 0.2 + waves;
   if (uv.y < shore) {
     float ripple = (vnoise(vec2(uv.x * 40.0, uv.y * 260.0 - t * 0.6)) - 0.5) * 0.02 * (1.0 + rain);
     vec2 ruv = vec2(uv.x + ripple, shore + (shore - uv.y) * 1.4);
@@ -120,6 +133,13 @@ void main() {
     // the sun's glitter path on the water
     float path = exp(-pow((uv.x - sun.x) * 9.0, 2.0)) * step(0.5, vnoise(vec2(uv.x * 120.0, uv.y * 400.0 + t)));
     col += vec3(1.0, 0.8, 0.55) * path * 0.35 * sunUp;
+    if (sea > 0.01) {
+      // dark heaving water, foam on the crests and in streaks
+      float swell = fbm(vec2(uv.x * 9.0 - t * 0.9, uv.y * 30.0 + t * 0.5));
+      vec3 storm = mix(vec3(0.03, 0.05, 0.06), vec3(0.12, 0.16, 0.18), swell);
+      float foam = smoothstep(shore - 0.018, shore, uv.y) + step(0.78, fbm(vec2(uv.x * 22.0 - t * 1.5, uv.y * 60.0))) * 0.6;
+      col = mix(col, storm + vec3(0.75, 0.8, 0.82) * clamp(foam, 0.0, 1.0) * 0.55, sea);
+    }
   }
 
   // layered ridges: far and pale (atmospheric perspective) to near and dark
@@ -128,7 +148,7 @@ void main() {
     float depth = fi / 3.0;
     float speed = mix(0.25, 1.6, depth);
     float base = mix(0.36, 0.19, depth);
-    float amp = mix(0.20, 0.17, depth);
+    float amp = mix(0.20, 0.17, depth) * ridges;
     float x = uv.x * mix(0.9, 2.2, depth) + flight * speed + fi * 13.7;
     float hgt = base + amp * pow(ridge(x, fi * 3.1), 1.6);
     if (i == 0) {
@@ -138,7 +158,7 @@ void main() {
       hgt = mix(hgt, bh, city);
       if (city > 0.01 && uv.y < hgt) { col = mix(col, ${vec3(PALETTE.charcoal)} * 0.5, city); }
     }
-    if (uv.y < hgt && uv.y > shore - 0.002) {
+    if (uv.y < hgt && uv.y > shore - 0.002 && (ridges > 0.01 || city > 0.01)) {
       // near layers are backlit silhouettes; far layers fade into the horizon haze
       vec3 near = ${vec3(PALETTE.charcoal)} * mix(0.45, 0.8, phase);
       vec3 rc = mix(mix(hor, near, 0.35), near, pow(depth, 0.8));
@@ -173,8 +193,8 @@ void main() {
   // the frenchcore pulse: every kick lifts the light a little
   col *= 1.0 + 0.08 * kick * drop;
 
-  // vignette
-  float v = length((uv - 0.5) * vec2(1.15, 1.0));
+  // vignette (in screen space)
+  float v = length((vUv - 0.5) * vec2(1.15, 1.0));
   col *= mix(1.0, 0.55, smoothstep(0.4, 0.9, v));
   gl_FragColor = vec4(col, 1.0);
 }
@@ -187,6 +207,7 @@ void main() { vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }
 
 export interface LandscapeState {
   t: number; phase: number; rain: number; city: number; flight: number; kick: number; drop: number; flash: number;
+  roll: number; zoom: number; lift: number; sea: number; ridges: number;
 }
 
 export class Landscape {
@@ -200,6 +221,7 @@ export class Landscape {
       uniforms: {
         t: { value: 0 }, phase: { value: 0 }, rain: { value: 0 }, city: { value: 0 },
         flight: { value: 0 }, kick: { value: 0 }, drop: { value: 0 }, flash: { value: 0 },
+        roll: { value: 0 }, zoom: { value: 1 }, lift: { value: 0 }, sea: { value: 0 }, ridges: { value: 1 },
       },
       depthTest: false,
       depthWrite: false,

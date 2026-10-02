@@ -15,10 +15,14 @@ The film travels from a rainy night to a golden sunrise, following the song's tu
 | 2:25–2:42 | golden hour | break, final lines | "how you become / how you come home" |
 | 2:42–3:05 | golden hour; the figure on the cliff | instrumental outro | then the title card |
 
-## Balance
+## Balance and structure
 
-- **Lyrics are the hero:** big, readable, synced per word.
-- **The landscape gives space:** wide, layered ridges and a lake, with the camera gliding faster when the music has more energy.
+This film is deliberately different from *Kindness Is Not Magic*: **70 % visuals, 30 % lyrics**.
+
+- **Many scenes** (about 30), each with its own visual idea, in the spirit of mexicat/pdoom-video. They live in `app/src/scenes-a.ts`, `scenes-b.ts` and `scenes-c.ts`.
+- **Hard cuts on the beat:** every scene starts on the beat at or before its first lyric (`cutAt` in `app/src/engine.ts`). In drop A the montage cuts on every line.
+- **The camera always moves:** pushes, pulls, tilts, orbits, a whip-pan at the crossroads, a dive into the pupil on each "again".
+- **Lyrics live in the scene:** wiped into misted glass, on a museum plaque, on a stadium scoreboard, on signposts, handwritten in the journal; otherwise as one caption at a time on a soft dark band.
 
 ## Palette
 

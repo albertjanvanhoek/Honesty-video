@@ -27,7 +27,7 @@ function mulberry32(seed: number): () => number {
 // ---------------------------------------------------------------- torn paper
 
 /** A torn paper rectangle path with a ragged edge, seeded so it is the same every frame. */
-function tornRect(g: CanvasRenderingContext2D, w: number, h: number, seed: number): void {
+export function tornRect(g: CanvasRenderingContext2D, w: number, h: number, seed: number): void {
   const rand = mulberry32(seed);
   const jag = (n: number) => Array.from({ length: n }, () => (rand() - 0.5) * 9);
   const top = jag(18), right = jag(10), bottom = jag(18), left = jag(10);
@@ -40,7 +40,7 @@ function tornRect(g: CanvasRenderingContext2D, w: number, h: number, seed: numbe
   g.closePath();
 }
 
-interface NoteLine {
+export interface NoteLine {
   text: string;
   /** 0..1 how much of the line is written */
   write: number;
@@ -50,7 +50,7 @@ interface NoteLine {
 }
 
 /** A taped, torn note with handwritten lines, written progressively. */
-function drawNote(
+export function drawNote(
   g: CanvasRenderingContext2D, x: number, y: number, w: number, rot: number, lines: NoteLine[],
   appear: number, seed: number, size = 46,
 ): void {
@@ -106,7 +106,7 @@ function drawNote(
 // ---------------------------------------------------------------- the figure
 
 /** A two-segment limb from `a`, with angles in radians from straight down. */
-function limb(g: CanvasRenderingContext2D, a: Pt, a1: number, a2: number, l1: number, l2: number, w: number): void {
+export function limb(g: CanvasRenderingContext2D, a: Pt, a1: number, a2: number, l1: number, l2: number, w: number): void {
   const b: Pt = [a[0] + Math.sin(a1) * l1, a[1] + Math.cos(a1) * l1];
   const c: Pt = [b[0] + Math.sin(a1 + a2) * l2, b[1] + Math.cos(a1 + a2) * l2];
   g.lineWidth = w;
@@ -117,7 +117,7 @@ function limb(g: CanvasRenderingContext2D, a: Pt, a1: number, a2: number, l1: nu
  * A silhouetted figure standing on `feet`, `height` px tall. `walk` is the walk cycle phase
  * (radians); `stride` 0..1 how much it walks; `arms` 0..1 how far the arms open upward.
  */
-function figure(g: CanvasRenderingContext2D, feet: Pt, height: number, walk: number, stride: number, arms: number, rim: number): void {
+export function figure(g: CanvasRenderingContext2D, feet: Pt, height: number, walk: number, stride: number, arms: number, rim: number): void {
   const u = height / 100;
   const hip: Pt = [feet[0], feet[1] - 48 * u];
   const neck: Pt = [feet[0] + 1.5 * u, feet[1] - 84 * u];
@@ -154,7 +154,7 @@ function figure(g: CanvasRenderingContext2D, feet: Pt, height: number, walk: num
   g.restore();
 }
 
-function cliff(g: CanvasRenderingContext2D, x: number, y: number, rim: number): void {
+export function cliff(g: CanvasRenderingContext2D, x: number, y: number, rim: number): void {
   g.save();
   g.fillStyle = '#0b0f12';
   g.beginPath();

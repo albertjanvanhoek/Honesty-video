@@ -71,7 +71,7 @@ function buildCues() {
 
 // ---------------------------------------------------------------- the needle
 
-interface NeedleScript {
+export interface NeedleScript {
   /** the angle the needle is pulled toward (0 = north), radians */
   target: (t: number) => number;
   /** if not null, the needle is held at this angle (pinned, frozen) */
@@ -91,7 +91,7 @@ const DT = 1 / 240;
  * The needle's world angle at `t`, integrated from the start of the song with a fixed step,
  * so every render of the same time gives the same angle.
  */
-function needleAngle(s: NeedleScript, t: number, start: number): number {
+export function needleAngle(s: NeedleScript, t: number, start: number): number {
   let th = 0.85, w = 0;
   let k = 0;
   const kicks = s.kicks;
@@ -109,10 +109,10 @@ function needleAngle(s: NeedleScript, t: number, start: number): number {
 
 // ---------------------------------------------------------------- sprites
 
-const R = 470;  // bezel radius
-const RC = 405; // dial (card) radius
+export const R = 470;  // bezel radius
+export const RC = 405; // dial (card) radius
 
-function makeDial(): HTMLCanvasElement {
+export function makeDial(): HTMLCanvasElement {
   const S = (R + 20) * 2, c = S / 2;
   const cv = document.createElement('canvas');
   cv.width = cv.height = S;
@@ -199,7 +199,7 @@ function makeDial(): HTMLCanvasElement {
   return cv;
 }
 
-function makeFrost(): HTMLCanvasElement {
+export function makeFrost(): HTMLCanvasElement {
   const S = RC * 2 + 8, c = S / 2;
   const cv = document.createElement('canvas');
   cv.width = cv.height = S;
@@ -231,7 +231,7 @@ function makeFrost(): HTMLCanvasElement {
 
 // ---------------------------------------------------------------- props
 
-function drawNeedle(g: CanvasRenderingContext2D, c: Pt, angle: number, glow: number): void {
+export function drawNeedle(g: CanvasRenderingContext2D, c: Pt, angle: number, glow: number): void {
   const len = RC * 0.86, w = 30;
   g.save();
   g.translate(c[0], c[1]);
@@ -262,7 +262,7 @@ function drawNeedle(g: CanvasRenderingContext2D, c: Pt, angle: number, glow: num
   g.restore();
 }
 
-function label(g: CanvasRenderingContext2D, text: string, x: number, y: number, color: string = CSS.ink): void {
+export function label(g: CanvasRenderingContext2D, text: string, x: number, y: number, color: string = CSS.ink): void {
   g.save();
   g.font = '700 26px "Cormorant Garamond", serif';
   g.textAlign = 'center'; g.textBaseline = 'middle';
@@ -271,7 +271,7 @@ function label(g: CanvasRenderingContext2D, text: string, x: number, y: number, 
   g.restore();
 }
 
-function drawShelf(g: CanvasRenderingContext2D, y: number): void {
+export function drawShelf(g: CanvasRenderingContext2D, y: number): void {
   g.save();
   g.shadowColor = 'rgba(5, 8, 12, 0.5)'; g.shadowBlur = 24; g.shadowOffsetY = 16;
   const wood = g.createLinearGradient(0, y, 0, y + 36);
@@ -285,7 +285,7 @@ function drawShelf(g: CanvasRenderingContext2D, y: number): void {
   }
 }
 
-function drawSwatch(g: CanvasRenderingContext2D, x: number, y: number): void {
+export function drawSwatch(g: CanvasRenderingContext2D, x: number, y: number): void {
   g.save();
   g.shadowColor = 'rgba(5, 8, 12, 0.45)'; g.shadowBlur = 12; g.shadowOffsetY = 8;
   g.fillStyle = CSS.paper; g.fillRect(x - 70, y - 190, 140, 190);
@@ -297,7 +297,7 @@ function drawSwatch(g: CanvasRenderingContext2D, x: number, y: number): void {
   label(g, 'eyes', x, y - 34);
 }
 
-function drawRuler(g: CanvasRenderingContext2D, x: number, y: number): void {
+export function drawRuler(g: CanvasRenderingContext2D, x: number, y: number): void {
   const h = 330;
   g.save();
   g.shadowColor = 'rgba(5, 8, 12, 0.45)'; g.shadowBlur = 12; g.shadowOffsetY = 8;
@@ -315,7 +315,7 @@ function drawRuler(g: CanvasRenderingContext2D, x: number, y: number): void {
   label(g, 'height', x, y + 56, CSS.paper);
 }
 
-function drawTrophy(g: CanvasRenderingContext2D, x: number, y: number, dome: number): void {
+export function drawTrophy(g: CanvasRenderingContext2D, x: number, y: number, dome: number): void {
   g.save();
   g.shadowColor = 'rgba(5, 8, 12, 0.5)'; g.shadowBlur = 16; g.shadowOffsetY = 10;
   const brass = g.createLinearGradient(x - 90, 0, x + 90, 0);
