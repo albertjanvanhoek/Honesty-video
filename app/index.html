@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Honesty Is a Compass</title>
+  <style>
+    /* Palette and type follow docs/STYLE_BIBLE.md (from docs/moodboard.webp). */
+    :root {
+      --charcoal: #172429;
+      --sand: #9e8f7f;
+      --amber: #e0a45e;
+      --cream: #f4ece0;
+      --paper: #e9e1d2;
+      --ink: #14100c;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --hand: "Caveat", cursive;
+      color: var(--cream);
+      background: #000;
+    }
+
+    html, body, #app {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #app {
+      display: grid;
+      place-items: center;
+      position: relative;
+      isolation: isolate;
+    }
+
+    /* Everything that punches on the kick lives on the stage. */
+    #stage {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      transform-origin: 50% 55%;
+      will-change: transform;
+    }
+
+    canvas {
+      display: block;
+      max-width: 100vw;
+      max-height: 100vh;
+    }
+
+    #compass, #story {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    #compass { z-index: 3; }
+    #story { z-index: 4; }
+
+    /* Lyrics: a tall, cinematic serif, lit softly from behind. */
+    #kinetic-lyrics {
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(44px, var(--kinetic-font-vw, 6.8vw), 150px);
+      letter-spacing: 0.005em;
+      line-height: 0.98;
+      text-align: center;
+      pointer-events: none;
+      text-shadow: 0 0.04em 0.02em rgba(0, 0, 0, 0.45), 0 0 0.45em rgba(0, 0, 0, 0.55);
+    }
+
+    .kinetic-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.06em;
+      transform-origin: 50% 50%;
+    }
+
+    .kinetic-row {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: baseline;
+      gap: var(--kinetic-gap-em, 0.26em);
+      white-space: nowrap;
+    }
+
+    .kinetic-word {
+      display: inline-block;
+      transform-origin: 50% 60%;
+    }
+
+    /* Quoted speech is set in italic, like a voice. */
+    #kinetic-lyrics.quote .kinetic-word { font-style: italic; font-weight: 600; }
+
+    /* The title card: a torn strip of paper, as on the mood board. */
+    #title-card {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 7;
+      width: 62vw;
+      padding: 2.4vw 3vw 2.1vw;
+      transform: translate(-50%, -50%);
+      background: var(--paper);
+      color: var(--ink);
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 1.2vw 3vw rgba(0, 0, 0, 0.55);
+      clip-path: polygon(0% 6%, 3% 0%, 9% 4%, 16% 1%, 24% 5%, 31% 0%, 40% 4%, 49% 1%, 57% 5%, 66% 0%, 74% 4%, 83% 1%, 91% 5%, 97% 0%, 100% 6%,
+                         99% 50%, 100% 94%, 96% 100%, 88% 96%, 79% 100%, 70% 95%, 61% 99%, 52% 95%, 43% 100%, 34% 96%, 25% 100%, 16% 95%, 8% 99%, 2% 95%, 0% 100%, 1% 50%);
+    }
+    #title-card .title {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 4.6vw;
+      letter-spacing: 0.22em;
+      margin-right: -0.22em;
+      text-transform: uppercase;
+      line-height: 1.05;
+    }
+    #title-card .themes {
+      margin-top: 1.1vw;
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.15vw;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    #title-card .by {
+      margin-top: 1.4vw;
+      font-family: var(--hand);
+      font-weight: 600;
+      font-size: 2.1vw;
+      color: #4a3a2a;
+    }
+
+    /* A warm light burst when a drop lands. */
+    #flash {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(circle at 60% 45%, rgba(255, 214, 150, 0.9), rgba(255, 170, 90, 0.35) 45%, rgba(255, 150, 80, 0) 75%);
+      mix-blend-mode: screen;
+    }
+
+    /* Film grain over everything, type included. */
+    #grain {
+      position: absolute;
+      inset: 0;
+      z-index: 9;
+      pointer-events: none;
+      opacity: 0.14;
+      mix-blend-mode: overlay;
+      background-repeat: repeat;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

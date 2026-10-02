@@ -1,0 +1,108 @@
+name: render preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      segment:
+        description: Preview section
+        required: true
+        default: drop-a
+        type: choice
+        options:
+          - intro-build
+          - drop-a
+          - breakdown-drop-b
+          - finale
+          - full
+      resolution:
+        description: Output resolution
+        required: true
+        default: 1080p
+        type: choice
+        options:
+          - 720p
+          - 1080p
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install app
+        working-directory: app
+        run: npm install
+
+      - name: Use preinstalled Chrome
+        shell: bash
+        run: |
+          CHROME_PATH="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser)"
+          test -n "$CHROME_PATH"
+          echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
+          "$CHROME_PATH" --version
+
+      - name: Install ffmpeg tools
+        working-directory: app
+        run: |
+          npx playwright install ffmpeg
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffmpeg -version | head -1
+
+      - name: Build renderer
+        working-directory: app
+        run: npm run build
+
+      - name: Start preview server
+        working-directory: app
+        run: |
+          npm run preview > /tmp/honesty-vite.log 2>&1 &
+          for i in {1..30}; do
+            curl -fsS http://127.0.0.1:4173 >/dev/null && exit 0
+            sleep 1
+          done
+          cat /tmp/honesty-vite.log
+          exit 1
+
+      - name: Resolve segment
+        id: segment
+        shell: bash
+        run: |
+          case "${{ inputs.segment }}" in
+            intro-build)      echo "start=0" >> "$GITHUB_OUTPUT"; echo "end=52" >> "$GITHUB_OUTPUT" ;;
+            drop-a)           echo "start=48" >> "$GITHUB_OUTPUT"; echo "end=82" >> "$GITHUB_OUTPUT" ;;
+            breakdown-drop-b) echo "start=80" >> "$GITHUB_OUTPUT"; echo "end=148" >> "$GITHUB_OUTPUT" ;;
+            finale)           echo "start=145" >> "$GITHUB_OUTPUT"; echo "end=184.92" >> "$GITHUB_OUTPUT" ;;
+            full)             echo "start=0" >> "$GITHUB_OUTPUT"; echo "end=184.92" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      - name: Resolve resolution
+        id: resolution
+        shell: bash
+        run: |
+          case "${{ inputs.resolution }}" in
+            720p)  echo "width=1280" >> "$GITHUB_OUTPUT"; echo "height=720" >> "$GITHUB_OUTPUT" ;;
+            1080p) echo "width=1920" >> "$GITHUB_OUTPUT"; echo "height=1080" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      - name: Render MP4
+        working-directory: app
+        run: |
+          npm run render:preview -- \
+            --start "${{ steps.segment.outputs.start }}" \
+            --end "${{ steps.segment.outputs.end }}" \
+            --name "${{ inputs.segment }}" \
+            --width "${{ steps.resolution.outputs.width }}" \
+            --height "${{ steps.resolution.outputs.height }}"
+
+      - name: Upload preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: honesty-${{ inputs.segment }}
+          path: |
+            app/rendered/${{ inputs.segment }}/*.mp4
+          retention-days: 14
