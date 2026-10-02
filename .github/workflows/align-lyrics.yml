@@ -2,6 +2,19 @@ name: align lyrics
 
 on:
   workflow_dispatch:
+    inputs:
+      model:
+        description: Whisper model (small.en is fast; medium.en hears sung words better)
+        default: medium.en
+        type: choice
+        options:
+          - small.en
+          - medium.en
+          - large-v3
+      separate:
+        description: Separate the vocals from the music first (recommended over heavy kicks)
+        default: true
+        type: boolean
   push:
     paths:
       - '.github/workflows/align-lyrics.yml'
@@ -9,6 +22,12 @@ on:
 
 permissions:
   contents: write
+
+env:
+  SONG: audio/Honesty Is a Compass.mp3
+  # a push has no inputs: use the same defaults as a manual run
+  MODEL: ${{ inputs.model || 'medium.en' }}
+  SEPARATE: ${{ github.event_name == 'push' || inputs.separate }}
 
 jobs:
   align:
@@ -25,13 +44,27 @@ jobs:
       - name: Install aligner
         run: pip install faster-whisper==1.1.1 requests
 
+      - name: Install vocal separation (Demucs, CPU)
+        if: env.SEPARATE == 'true'
+        run: |
+          pip install torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install demucs==4.0.1 soundfile
+
+      - name: Separate vocals
+        if: env.SEPARATE == 'true'
+        run: |
+          python -m demucs --two-stems=vocals -n htdemucs -o sep "$SONG"
+          ls -la "sep/htdemucs/$(basename "$SONG" .mp3)"
+
       - name: Align known lyrics to recording
         run: |
+          AUDIO="$SONG"
+          if [ "$SEPARATE" = "true" ]; then AUDIO="sep/htdemucs/$(basename "$SONG" .mp3)/vocals.wav"; fi
           python analysis/align_whisper.py \
-            --audio "audio/Honesty Is a Compass.mp3" \
+            --audio "$AUDIO" \
             --lyrics lyrics/lyrics.txt \
             --out data/lyrics.json \
-            --model small.en
+            --model "$MODEL"
 
       - name: Show first timings
         run: |
@@ -39,7 +72,7 @@ jobs:
           import json
           x=json.load(open('data/lyrics.json'))
           print(x['alignment'])
-          for line in x['lines'][:6]:
+          for line in x['lines']:
               print(line['start'], line['end'], line['text'])
           PY
 
@@ -51,7 +84,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            git commit -m "Replace provisional lyric timing with Whisper alignment"
+            git commit -m "Align lyrics with Whisper ($MODEL, vocals separated: $SEPARATE)"
             for attempt in 1 2 3; do
               if git push; then
                 break
