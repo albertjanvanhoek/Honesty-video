@@ -27,7 +27,7 @@ docs/       style bible
 
 ## Render a preview
 
-GitHub → **Actions** → **render preview** → **Run workflow**. Pick a section (`opening`, `first-half`, `second-half` or `full`) and a resolution, then download the `honesty-<section>` artifact.
+GitHub → **Actions** → **render preview** → **Run workflow**. Pick a section (`intro-build`, `drop-a`, `breakdown-drop-b`, `finale` or `full`) and a resolution, then download the `honesty-<section>` artifact.
 
 ## Lyric timing
 

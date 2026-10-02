@@ -6,12 +6,13 @@ on:
       segment:
         description: Preview section
         required: true
-        default: opening
+        default: drop-a
         type: choice
         options:
-          - opening
-          - first-half
-          - second-half
+          - intro-build
+          - drop-a
+          - breakdown-drop-b
+          - finale
           - full
       resolution:
         description: Output resolution
@@ -72,10 +73,11 @@ jobs:
         shell: bash
         run: |
           case "${{ inputs.segment }}" in
-            opening)     echo "start=0" >> "$GITHUB_OUTPUT"; echo "end=40" >> "$GITHUB_OUTPUT" ;;
-            first-half)  echo "start=0" >> "$GITHUB_OUTPUT"; echo "end=95" >> "$GITHUB_OUTPUT" ;;
-            second-half) echo "start=90" >> "$GITHUB_OUTPUT"; echo "end=184.92" >> "$GITHUB_OUTPUT" ;;
-            full)        echo "start=0" >> "$GITHUB_OUTPUT"; echo "end=184.92" >> "$GITHUB_OUTPUT" ;;
+            intro-build)      echo "start=0" >> "$GITHUB_OUTPUT"; echo "end=52" >> "$GITHUB_OUTPUT" ;;
+            drop-a)           echo "start=48" >> "$GITHUB_OUTPUT"; echo "end=82" >> "$GITHUB_OUTPUT" ;;
+            breakdown-drop-b) echo "start=80" >> "$GITHUB_OUTPUT"; echo "end=148" >> "$GITHUB_OUTPUT" ;;
+            finale)           echo "start=145" >> "$GITHUB_OUTPUT"; echo "end=184.92" >> "$GITHUB_OUTPUT" ;;
+            full)             echo "start=0" >> "$GITHUB_OUTPUT"; echo "end=184.92" >> "$GITHUB_OUTPUT" ;;
           esac
 
       - name: Resolve resolution
